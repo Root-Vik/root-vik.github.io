@@ -1,188 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Digital Gabbar</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: #0f172a;
-            color: #fff;
-        }
-
-        header {
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #020617;
-        }
-
-        header h1 {
-            color: #38bdf8;
-        }
-
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #cbd5f5;
-        }
-
-        nav a:hover {
-            color: #38bdf8;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(to right, #020617, #1e293b);
-        }
-
-        .hero h2 {
-            font-size: 48px;
-            color: #38bdf8;
-        }
-
-        .hero p {
-            max-width: 700px;
-            margin: auto;
-            color: #94a3b8;
-            font-size: 18px;
-        }
-
-        .btn {
-            margin-top: 20px;
-            padding: 12px 25px;
-            background: #38bdf8;
-            color: #000;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        section {
-            padding: 60px 40px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 30px;
-            color: #38bdf8;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: #1e293b;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .card h3 {
-            color: #38bdf8;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #020617;
-            color: #94a3b8;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Digital Gabbar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<header>
-    <h1>Digital Gabbar</h1>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Services</a>
-        <a href="#">Technologies</a>
-        <a href="#">Contact</a>
-    </nav>
+<!-- Loader -->
+<div id="loader">
+  <div class="spinner"></div>
+</div>
+
+<!-- Navbar -->
+<header class="navbar">
+  <h1>Digital Gabbar</h1>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#tech">Tech</a>
+    <a href="#roadmap">Process</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
+<!-- Hero -->
 <section class="hero">
-    <h2>Build Your Digital Future</h2>
+  <div class="hero-content">
+    <h2>We Build Digital Products That Scale</h2>
     <p>
-        Digital Gabbar is the right place where you want to make your app.
-        We understand your requirements, provide the best suggestions, and deliver optimal solutions.
-        We are always available, dedicated to work, and passionate about technology.
+      We understand your vision, design smart solutions, and build scalable systems
+      with precision and dedication.
     </p>
-    <button class="btn">Get Started</button>
-</section>
-
-<section>
-    <h2 class="section-title">Our Services</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Web Development</h3>
-            <p>Modern, scalable and secure websites.</p>
-        </div>
-        <div class="card">
-            <h3>Mobile Apps</h3>
-            <p>Android & iOS apps with great performance.</p>
-        </div>
-        <div class="card">
-            <h3>Custom Software</h3>
-            <p>Tailored solutions based on your needs.</p>
-        </div>
+    <div class="hero-buttons">
+      <button class="primary">Start Your Project</button>
+      <button class="secondary">View Work</button>
     </div>
+  </div>
 </section>
 
-<section>
-    <h2 class="section-title">Technologies We Use</h2>
-    <div class="grid">
-        <div class="card">Angular</div>
-        <div class="card">.NET Core</div>
-        <div class="card">.NET MAUI</div>
-        <div class="card">MVC / WebForms / WinForms</div>
-        <div class="card">Node.js</div>
-        <div class="card">Full Stack Development</div>
-    </div>
+<!-- About -->
+<section class="section reveal">
+  <h2>How We Work</h2>
+  <p class="center">
+    From idea to launch — we consult, plan, execute, and support your product long-term.
+  </p>
 </section>
 
-<section>
-    <h2 class="section-title">Domains Expertise</h2>
-    <div class="grid">
-        <div class="card">Gaming Platforms</div>
-        <div class="card">Ticketing Systems</div>
-        <div class="card">Pharma Solutions</div>
-        <div class="card">Freelancing Portals</div>
-        <div class="card">CRM Systems</div>
-        <div class="card">SaaS Management Tools</div>
-    </div>
+<!-- Services -->
+<section id="services" class="section reveal">
+  <h2>Services</h2>
+  <div class="grid">
+    <div class="card">Web Development</div>
+    <div class="card">Mobile Apps</div>
+    <div class="card">Custom Software</div>
+    <div class="card">SaaS Platforms</div>
+    <div class="card">Backend Systems</div>
+  </div>
 </section>
 
-<section>
-    <h2 class="section-title">About Us</h2>
-    <p style="text-align:center; max-width:700px; margin:auto;">
-        We are a passionate team of developers focused on delivering high-quality digital solutions.
-        From idea to execution, Digital Gabbar ensures smooth development and reliable results.
-    </p>
+<!-- Tech -->
+<section id="tech" class="section reveal">
+  <h2>Technologies</h2>
+  <div class="tech-grid">
+    <span>Angular</span>
+    <span>.NET Core</span>
+    <span>.NET MAUI</span>
+    <span>Node.js</span>
+    <span>MVC</span>
+    <span>Full Stack</span>
+  </div>
 </section>
 
-<section>
-    <h2 class="section-title">Contact Us</h2>
-    <p style="text-align:center;">
-        📧 email@digitalgabbar.com <br>
-        📞 +91 99999 99999 <br>
-        📍 Ahmedabad, India
-    </p>
+<!-- Roadmap -->
+<section id="roadmap" class="section reveal">
+  <h2>Our Process</h2>
+  <div class="timeline">
+    <div>Requirement</div>
+    <div>Planning</div>
+    <div>Design</div>
+    <div>Development</div>
+    <div>Testing</div>
+    <div>Deployment</div>
+    <div>Scaling</div>
+  </div>
+</section>
+
+<!-- Domains -->
+<section class="section reveal">
+  <h2>Domains</h2>
+  <div class="grid">
+    <div class="card">Gaming</div>
+    <div class="card">Ticketing</div>
+    <div class="card">Pharma</div>
+    <div class="card">Freelancing</div>
+    <div class="card">CRM</div>
+    <div class="card">SaaS</div>
+  </div>
+</section>
+
+<!-- Blog -->
+<section class="section reveal">
+  <h2>Insights</h2>
+  <div class="grid">
+    <div class="card">Build Scalable Apps</div>
+    <div class="card">Choosing Right Tech</div>
+    <div class="card">Startup Mistakes</div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section reveal">
+  <h2>Let’s Build Something Great</h2>
+  <form>
+    <input type="text" placeholder="Name">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Message"></textarea>
+    <button class="primary">Send Message</button>
+  </form>
 </section>
 
 <footer>
-    © 2026 Digital Gabbar | All Rights Reserved
+  © 2026 Digital Gabbar
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
