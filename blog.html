@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Digital Gabbar</title>
+<meta name="description" content="Read insights on software development, technology trends, and building digital products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- Google AdSense (replace ca-pub-XXXXXXX with your real publisher ID) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="bar"></div>
+
+<!-- Mobile Drawer -->
+<div class="drawer" id="drawer">
+  <button class="drawer-close" onclick="closeDrawer()">&#10005;</button>
+  <a href="index.html">Home</a>
+  <a href="index.html#services" onclick="closeDrawer()">Services</a>
+  <a href="blogs.html" onclick="closeDrawer()">Blog</a>
+  <a href="contact.html" onclick="closeDrawer()">Contact</a>
+</div>
+
+<!-- Nav -->
+<nav id="nav" class="scrolled">
+  <a class="nav-logo" href="/">
+    <div class="logo-mark"><img src="assets/logos/gigi-gabbar-logo.png" alt="DG"></div>
+    <span class="logo-name">Digital Gabbar</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#tech">Tech</a>
+    <a href="index.html#team">Team</a>
+    <a href="blogs.html" class="active">Blog</a>
+    <a href="contact.html" class="cta">Get in touch</a>
+  </div>
+  <button class="hamburger" onclick="openDrawer()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- Blog Detail Header -->
+<div class="blog-detail-header" id="blogHeader">
+  <!-- Populated by JS -->
+</div>
+
+<!-- AD SLOT: Top of article -->
+<div style="max-width:720px;margin:0 auto;padding:0 48px">
+  <div class="ad-slot" id="adTop">
+    <!-- AdSense Ad Unit — Top -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <noscript>Ad Space — Top of Article</noscript>
+  </div>
+</div>
+
+<!-- Blog Content -->
+<article class="blog-content" id="blogContent">
+  <!-- Populated by JS -->
+</article>
+
+<!-- AD SLOT: Bottom of article -->
+<div style="max-width:720px;margin:0 auto;padding:0 48px 48px">
+  <div class="ad-slot" id="adBottom">
+    <!-- AdSense Ad Unit — Bottom -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <noscript>Ad Space — Bottom of Article</noscript>
+  </div>
+</div>
+
+<!-- Related Posts -->
+<section style="border-top:1px solid var(--border);background:var(--bg2)">
+  <div class="s">
+    <div class="s-label">Keep reading</div>
+    <h2 class="s-title" style="margin-bottom:32px">More from the blog</h2>
+    <div class="blog-grid" id="relatedPosts" style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo" style="display:inline-flex"><div class="logo-mark"><img src="assets/logos/gigi-gabbar-logo.png" alt="DG"></div><span class="logo-name" style="margin-left:10px">Digital Gabbar</span></div>
+      <p>A software development studio building products that people use and businesses rely on.</p>
+      <div class="footer-contact">
+        <a href="mailto:rootvik23@gmail.com">&#128231; rootvik23@gmail.com</a>
+        <a href="tel:+917567279350">&#128222; +91 7567279350</a>
+      </div>
+    </div>
+    <div class="fcol">
+      <h5>Services</h5>
+      <a href="index.html#services">Web Development</a>
+      <a href="index.html#services">Mobile Apps</a>
+      <a href="index.html#services">Custom Software</a>
+      <a href="index.html#services">API Design</a>
+    </div>
+    <div class="fcol">
+      <h5>Technologies</h5>
+      <a href="index.html#tech">.NET Core</a>
+      <a href="index.html#tech">React / Angular</a>
+      <a href="index.html#tech">Node.js</a>
+      <a href="index.html#tech">Azure / AWS</a>
+    </div>
+    <div class="fcol">
+      <h5>Company</h5>
+      <a href="index.html#about">About</a>
+      <a href="index.html#team">Team</a>
+      <a href="blogs.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Digital Gabbar. All rights reserved.</span>
+    <span>Ahmedabad, India</span>
+    <span>Privacy &middot; Terms</span>
+  </div>
+</footer>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</button>
+<div id="toast"></div>
+
+<script src="js/blog-data.js"></script>
+<script src="js/main.js"></script>
+<script>
+function formatDate(dateStr) {
+  return new Date(dateStr).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+function renderBlogDetail() {
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug');
+  if (!slug || typeof BLOG_POSTS === 'undefined') {
+    window.location.href = 'blogs.html';
+    return;
+  }
+
+  const post = BLOG_POSTS.find(p => p.slug === slug);
+  if (!post) {
+    window.location.href = 'blogs.html';
+    return;
+  }
+
+  // Update page title
+  document.title = post.title + ' — Digital Gabbar Blog';
+
+  // Header
+  document.getElementById('blogHeader').innerHTML = `
+    <span class="blog-cat-badge">${post.category}</span>
+    <h1>${post.title}</h1>
+    <div class="blog-detail-meta">
+      <div class="author-av">${post.authorInitials}</div>
+      <span>${post.author}</span>
+      <span>&middot;</span>
+      <span>${formatDate(post.date)}</span>
+      <span>&middot;</span>
+      <span>${post.readTime}</span>
+    </div>
+  `;
+
+  // Content with inline ad injection
+  const contentParts = post.content.split('</h2>');
+  let finalContent = '';
+  contentParts.forEach((part, i) => {
+    finalContent += part;
+    if (i < contentParts.length - 1) {
+      finalContent += '</h2>';
+      // Insert inline ad after the second heading
+      if (i === 1) {
+        finalContent += `
+          <div class="ad-slot">
+            <ins class="adsbygoogle"
+                 style="display:block;text-align:center"
+                 data-ad-layout="in-article"
+                 data-ad-format="fluid"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>
+            <noscript>Ad Space — In-Article</noscript>
+          </div>
+        `;
+      }
+    }
+  });
+  document.getElementById('blogContent').innerHTML = finalContent;
+
+  // Related posts (exclude current)
+  const related = BLOG_POSTS.filter(p => p.slug !== slug).slice(0, 3);
+  document.getElementById('relatedPosts').innerHTML = related.map(p => `
+    <a class="blog-card" href="blog.html?slug=${p.slug}">
+      <div class="blog-card-img">
+        <img src="${p.image}" alt="${p.title}" loading="lazy">
+        <span class="blog-cat">${p.category}</span>
+      </div>
+      <div class="blog-card-body">
+        <h3>${p.title}</h3>
+        <p>${p.excerpt}</p>
+        <div class="blog-meta">
+          <span>${p.author}</span>
+          <span>&middot;</span>
+          <span>${formatDate(p.date)}</span>
+        </div>
+      </div>
+    </a>
+  `).join('');
+}
+
+renderBlogDetail();
+</script>
+</body>
+</html>

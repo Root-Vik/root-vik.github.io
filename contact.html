@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Digital Gabbar</title>
+<meta name="description" content="Get in touch with Digital Gabbar. Let's discuss your project, hire developers, or explore career opportunities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="bar"></div>
+
+<!-- Mobile Drawer -->
+<div class="drawer" id="drawer">
+  <button class="drawer-close" onclick="closeDrawer()">&#10005;</button>
+  <a href="index.html">Home</a>
+  <a href="index.html#services" onclick="closeDrawer()">Services</a>
+  <a href="index.html#tech" onclick="closeDrawer()">Technologies</a>
+  <a href="blogs.html" onclick="closeDrawer()">Blog</a>
+  <a href="contact.html" onclick="closeDrawer()">Contact</a>
+</div>
+
+<!-- Nav -->
+<nav id="nav" class="scrolled">
+  <a class="nav-logo" href="/">
+    <div class="logo-mark"><img src="assets/logos/gigi-gabbar-logo.png" alt="DG"></div>
+    <span class="logo-name">Digital Gabbar</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#tech">Tech</a>
+    <a href="index.html#team">Team</a>
+    <a href="blogs.html">Blog</a>
+    <a href="contact.html" class="cta active">Get in touch</a>
+  </div>
+  <button class="hamburger" onclick="openDrawer()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="s-label">Contact</div>
+  <h1>Let's talk</h1>
+  <p>Whether you have a project in mind, want to hire developers, or need career guidance — we're here to help.</p>
+</div>
+
+<!-- Contact Content -->
+<section>
+  <div class="s">
+    <div class="contact-page-grid">
+      <!-- Left: Info -->
+      <div>
+        <div class="contact-info-card reveal">
+          <h3>Reach out directly</h3>
+          <div class="ci"><div class="ci-ico">&#128231;</div><div><div class="ci-l">Email</div><div class="ci-v"><a href="mailto:rootvik23@gmail.com">rootvik23@gmail.com</a></div></div></div>
+          <div class="ci"><div class="ci-ico">&#128222;</div><div><div class="ci-l">Phone / WhatsApp</div><div class="ci-v"><a href="tel:+917567279350">+91 7567279350</a></div></div></div>
+          <div class="ci" style="margin-bottom:0"><div class="ci-ico">&#128205;</div><div><div class="ci-l">Location</div><div class="ci-v">Ahmedabad, Gujarat, India</div></div></div>
+        </div>
+
+        <div class="contact-info-card reveal">
+          <h3>Office hours</h3>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:14px;color:var(--text)">Monday &ndash; Friday</span>
+            <span style="font-size:14px;color:var(--muted2)">10:00 AM &ndash; 7:00 PM IST</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:14px;color:var(--text)">Saturday</span>
+            <span style="font-size:14px;color:var(--muted2)">10:00 AM &ndash; 2:00 PM IST</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0">
+            <span style="font-size:14px;color:var(--text)">Sunday</span>
+            <span style="font-size:14px;color:var(--muted2)">Closed</span>
+          </div>
+        </div>
+
+        <div class="map-placeholder reveal">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235013.74092579823!2d72.41579455!3d23.020474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1711000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="reveal" id="contactForm">
+        <div style="margin-bottom:32px">
+          <h2 style="font-family:var(--serif);font-size:28px;color:var(--white);margin-bottom:8px">Send us a message</h2>
+          <p style="font-size:14px;color:var(--muted2)">Fill out the form below and we'll get back to you within 24 hours.</p>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label>Name</label><input type="text" name="name" placeholder="Your full name" required></div>
+          <div class="fg"><label>Email</label><input type="email" name="email" placeholder="you@company.com" required></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label>Phone</label><input type="tel" name="phone" placeholder="+91 XXXXX XXXXX"></div>
+          <div class="fg"><label>Company</label><input type="text" name="company" placeholder="Your company name"></div>
+        </div>
+        <div class="fg"><label>I'm interested in</label>
+          <select name="service" id="serviceSelect">
+            <option value="">Select a service...</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Mobile Application">Mobile Application</option>
+            <option value="Custom Software">Custom Software</option>
+            <option value="API & Integration">API &amp; Integration</option>
+            <option value="Legacy Modernisation">Legacy Modernisation</option>
+            <option value="Hire Developers">Hire Developers</option>
+            <option value="HR / Job Assistance">HR / Job Assistance</option>
+            <option value="Technical Consulting">Technical Consulting</option>
+          </select>
+        </div>
+        <div class="fg"><label>Budget range</label>
+          <select name="budget">
+            <option value="">Select...</option>
+            <option>Under &#8377;1L</option>
+            <option>&#8377;1L &ndash; &#8377;5L</option>
+            <option>&#8377;5L &ndash; &#8377;15L</option>
+            <option>&#8377;15L+</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="fg"><label>Message</label><textarea name="message" placeholder="Tell us about your project, timeline, and any specific requirements..." required rows="5"></textarea></div>
+        <button class="form-btn" onclick="submitForm()">Send message &rarr;</button>
+        <p style="font-size:12px;color:var(--muted);margin-top:12px;text-align:center">We respect your privacy. Your information will never be shared with third parties.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo" style="display:inline-flex"><div class="logo-mark"><img src="assets/logos/gigi-gabbar-logo.png" alt="DG"></div><span class="logo-name" style="margin-left:10px">Digital Gabbar</span></div>
+      <p>A software development studio building products that people use and businesses rely on.</p>
+      <div class="footer-contact">
+        <a href="mailto:rootvik23@gmail.com">&#128231; rootvik23@gmail.com</a>
+        <a href="tel:+917567279350">&#128222; +91 7567279350</a>
+      </div>
+    </div>
+    <div class="fcol">
+      <h5>Services</h5>
+      <a href="index.html#services">Web Development</a>
+      <a href="index.html#services">Mobile Apps</a>
+      <a href="index.html#services">Custom Software</a>
+      <a href="index.html#services">API Design</a>
+    </div>
+    <div class="fcol">
+      <h5>Technologies</h5>
+      <a href="index.html#tech">.NET Core</a>
+      <a href="index.html#tech">React / Angular</a>
+      <a href="index.html#tech">Node.js</a>
+      <a href="index.html#tech">Azure / AWS</a>
+    </div>
+    <div class="fcol">
+      <h5>Company</h5>
+      <a href="index.html#about">About</a>
+      <a href="index.html#team">Team</a>
+      <a href="blogs.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Digital Gabbar. All rights reserved.</span>
+    <span>Ahmedabad, India</span>
+    <span>Privacy &middot; Terms</span>
+  </div>
+</footer>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</button>
+<div id="toast"></div>
+
+<script src="js/main.js"></script>
+<script>
+// Pre-select service from URL param (e.g., ?service=careers)
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const service = params.get('service');
+  if (service) {
+    const sel = document.getElementById('serviceSelect');
+    if (sel) {
+      const map = { careers: 'HR / Job Assistance', hire: 'Hire Developers' };
+      const val = map[service] || service;
+      for (let i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value === val) { sel.selectedIndex = i; break; }
+      }
+    }
+  }
+})();
+</script>
+</body>
+</html>

@@ -4,245 +4,70 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Digital Gabbar — Software Development Studio</title>
+<meta name="description" content="Digital Gabbar is a full-stack software development studio based in Ahmedabad, India. We build web apps, mobile apps, and enterprise software with modern technologies.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#0c0c0d;--bg2:#111114;--surface:#161619;
-  --border:#222226;--border2:#2a2a2f;
-  --text:#e8e8ea;--muted:#6b6b78;--muted2:#9494a0;
-  <!-- --accent:#4f8ef7;--accent-d:#3a6fd4;--white:#f5f5f7; -->
-  --serif:'DM Serif Display',Georgia,serif;
-  --sans:'DM Sans',system-ui,sans-serif;
-}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;overflow-x:hidden}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
-nav.scrolled{background:rgba(12,12,13,.92);backdrop-filter:blur(20px);border-color:var(--border)}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo-mark{width:32px;height:32px;background:var(--accent);border-radius:8px;display:grid;place-items:center;font-family:var(--sans);font-weight:600;font-size:13px;color:#fff;flex-shrink:0}
-.logo-name{font-size:15px;font-weight:600;color:var(--white);letter-spacing:-.02em}
-.nav-links{display:flex;align-items:center;gap:4px}
-.nav-links a{color:var(--muted2);text-decoration:none;font-size:14px;padding:6px 14px;border-radius:6px;transition:color .2s,background .2s}
-.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.05)}
-.nav-links .cta{color:var(--white);background:var(--accent);font-weight:500;margin-left:8px;transition:background .2s,transform .15s}
-.nav-links .cta:hover{background:var(--accent-d);transform:translateY(-1px)}
-.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px}
-.hamburger span{width:20px;height:1.5px;background:var(--muted2);border-radius:2px;transition:.3s}
-
-/* DRAWER */
-.drawer{display:none;position:fixed;inset:0;z-index:99;background:var(--bg);flex-direction:column;align-items:flex-start;padding:80px 40px 40px;gap:8px}
-.drawer.open{display:flex}
-.drawer a{font-size:24px;font-weight:500;color:var(--text);text-decoration:none;padding:10px 0;border-bottom:1px solid var(--border);width:100%;transition:color .2s}
-.drawer a:hover{color:var(--accent)}
-.drawer-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer}
-
-/* PROGRESS */
-#bar{position:fixed;top:0;left:0;height:1px;background:var(--accent);z-index:200;transition:width .1s}
-
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;padding:100px 48px 80px;position:relative}
-.hero-inner{max-width:740px}
-.hero-label{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted2);margin-bottom:32px;opacity:0;animation:up .6s .1s forwards}
-.hero-label::before{content:'';width:24px;height:1px;background:var(--accent)}
-.hero h1{font-family:var(--serif);font-size:clamp(42px,6vw,76px);line-height:1.08;letter-spacing:-.02em;color:var(--white);margin-bottom:28px;opacity:0;animation:up .6s .2s forwards}
-.hero h1 em{font-style:italic;color:var(--accent)}
-.hero p{font-size:17px;line-height:1.75;color:var(--muted2);max-width:560px;margin-bottom:44px;opacity:0;animation:up .6s .3s forwards}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:up .6s .4s forwards}
-.btn{padding:12px 26px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;border:none;transition:all .2s;letter-spacing:-.01em;font-family:var(--sans)}
-.btn-solid{background:var(--accent);color:#fff}
-.btn-solid:hover{background:var(--accent-d);transform:translateY(-1px);box-shadow:0 6px 24px rgba(79,142,247,.25)}
-.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border2)}
-.btn-outline:hover{border-color:var(--muted);color:var(--white);background:rgba(255,255,255,.04)}
-.hero-tw{margin-top:32px;font-size:13px;color:var(--muted);opacity:0;animation:up .6s .5s forwards}
-.tw::after{content:'|';color:var(--accent);animation:blink .8s step-end infinite}
-.hero::after{content:'';position:absolute;right:0;top:0;bottom:0;width:42%;background:repeating-linear-gradient(0deg,transparent,transparent 79px,var(--border) 79px,var(--border) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,var(--border) 79px,var(--border) 80px);opacity:.3;pointer-events:none;mask-image:radial-gradient(ellipse at 70% 50%,black 20%,transparent 75%)}
-
-/* STATS */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border);border-top:1px solid var(--border)}
-.stat{padding:36px 40px;border-right:1px solid var(--border)}
-.stat:last-child{border-right:none}
-.stat-n{font-family:var(--serif);font-size:38px;color:var(--white);line-height:1;margin-bottom:6px}
-.stat-l{font-size:13px;color:var(--muted)}
-
-/* SECTION */
-.s{padding:96px 48px;max-width:1160px;margin:0 auto}
-.s-label{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
-.s-label::before{content:'';width:20px;height:1px;background:var(--border2)}
-.s-title{font-family:var(--serif);font-size:clamp(30px,3.5vw,48px);color:var(--white);line-height:1.1;letter-spacing:-.02em;margin-bottom:16px}
-.s-title em{font-style:italic;color:var(--accent)}
-.s-sub{font-size:15px;color:var(--muted2);line-height:1.8;max-width:500px}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
-.reveal.in{opacity:1;transform:none}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
-
-/* SERVICES */
-.services-wrap{border-top:1px solid var(--border);margin-top:56px}
-.service-row{display:grid;grid-template-columns:48px 1fr auto;align-items:start;gap:28px;padding:32px 0;border-bottom:1px solid var(--border);transition:all .2s;cursor:default;border-radius:4px}
-.service-row:hover{background:var(--surface);padding-left:20px;padding-right:20px;margin:0 -20px}
-.s-num{font-size:11px;color:var(--muted);font-weight:500;padding-top:3px;letter-spacing:.04em}
-.s-body h3{font-size:17px;font-weight:600;color:var(--white);margin-bottom:6px;letter-spacing:-.02em}
-.s-body p{font-size:14px;color:var(--muted2);line-height:1.7;max-width:520px}
-.s-chip{font-size:11px;padding:4px 10px;border:1px solid var(--border2);border-radius:4px;color:var(--muted);white-space:nowrap;margin-top:2px}
-
-/* TECH */
-.tech-section{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2)}
-.tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.tech-list{display:flex;flex-direction:column}
-.tech-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border);transition:padding .2s}
-.tech-row:last-child{border-bottom:none}
-.tech-row:hover{padding-left:10px}
-.t-name{font-size:14px;font-weight:500;color:var(--text)}
-.t-cat{font-size:11px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
-
-/* DOMAINS */
-.domains-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:56px}
-.d-cell{background:var(--bg);padding:28px 24px;transition:background .2s;cursor:default}
-.d-cell:hover{background:var(--surface)}
-.d-cell .di{font-size:20px;margin-bottom:10px}
-.d-cell .dn{font-size:14px;font-weight:500;color:var(--text);letter-spacing:-.01em}
-
-/* PROCESS */
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-top:64px}
-.p-num{font-family:var(--serif);font-size:32px;color:var(--border2);line-height:1;margin-bottom:16px;transition:color .3s}
-.process-step:hover .p-num{color:var(--accent)}
-.p-title{font-size:15px;font-weight:600;color:var(--white);margin-bottom:8px;letter-spacing:-.01em}
-.p-desc{font-size:13px;color:var(--muted);line-height:1.7}
-
-/* TESTIMONIALS */
-.testi-section{border-top:1px solid var(--border);background:var(--bg2)}
-.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:56px}
-.t-cell{background:var(--bg2);padding:36px;transition:background .2s}
-.t-cell:hover{background:var(--surface)}
-.t-q{font-family:var(--serif);font-size:17px;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:28px}
-.t-who{display:flex;align-items:center;gap:12px}
-.t-av{width:36px;height:36px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--accent);flex-shrink:0}
-.t-name{font-size:13px;font-weight:600;color:var(--white)}
-.t-role{font-size:12px;color:var(--muted)}
-
-/* ABOUT */
-.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.about-text p{font-size:15px;color:var(--muted2);line-height:1.85;margin-bottom:18px}
-.about-text p strong{color:var(--text);font-weight:500}
-.about-metrics{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden}
-.am{background:var(--bg2);padding:28px 24px}
-.am-v{font-family:var(--serif);font-size:30px;color:var(--white);line-height:1;margin-bottom:4px}
-.am-k{font-size:12px;color:var(--muted)}
-
-/* CONTACT */
-.contact-section{border-top:1px solid var(--border)}
-.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.ci{display:flex;gap:16px;margin-bottom:20px;align-items:flex-start}
-.ci-ico{width:36px;height:36px;flex-shrink:0;border:1px solid var(--border);border-radius:8px;display:grid;place-items:center;font-size:15px;background:var(--surface)}
-.ci-l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
-.ci-v{font-size:14px;color:var(--text)}
-.fg{margin-bottom:16px}
-.fg label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px;letter-spacing:.04em;text-transform:uppercase}
-.fg input,.fg textarea,.fg select{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:12px 14px;color:var(--text);font-family:var(--sans);font-size:14px;outline:none;transition:border-color .2s;resize:vertical}
-.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--accent)}
-.fg textarea{min-height:110px}
-.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.fg select option{background:var(--bg)}
-.form-btn{width:100%;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;transition:background .2s,transform .15s}
-.form-btn:hover{background:var(--accent-d);transform:translateY(-1px)}
-
-/* FOOTER */
-footer{border-top:1px solid var(--border);padding:56px 48px 36px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;max-width:1160px;margin:0 auto 48px}
-.footer-brand p{font-size:13px;color:var(--muted);line-height:1.8;margin-top:12px;max-width:240px}
-.fcol h5{font-size:12px;font-weight:600;color:var(--muted2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px}
-.fcol a{display:block;font-size:13px;color:var(--muted);text-decoration:none;margin-bottom:8px;transition:color .2s}
-.fcol a:hover{color:var(--text)}
-.footer-bottom{max-width:1160px;margin:0 auto;border-top:1px solid var(--border);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.footer-bottom span{font-size:12px;color:var(--muted)}
-
-/* TOAST */
-#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(60px);background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:12px 22px;font-size:13px;color:var(--text);display:flex;align-items:center;gap:10px;z-index:999;transition:transform .35s cubic-bezier(.16,1,.3,1);pointer-events:none;white-space:nowrap}
-#toast.show{transform:translateX(-50%) translateY(0)}
-#toast::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
-
-/* BTT */
-#btt{position:fixed;bottom:28px;right:28px;z-index:90;width:40px;height:40px;background:var(--surface);border:1px solid var(--border2);border-radius:8px;cursor:pointer;display:grid;place-items:center;color:var(--muted2);font-size:16px;opacity:0;pointer-events:none;transition:opacity .3s,background .2s}
-#btt.show{opacity:1;pointer-events:auto}
-#btt:hover{background:var(--border2);color:var(--white)}
-
-@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-@keyframes blink{50%{opacity:0}}
-
-@media(max-width:960px){
-  nav{padding:0 24px}.nav-links{display:none}.hamburger{display:flex}
-  .hero{padding:90px 24px 60px}.hero::after{display:none}
-  .s{padding:64px 24px}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .tech-grid{grid-template-columns:1fr;gap:48px}
-  .domains-grid{grid-template-columns:repeat(2,1fr)}
-  .process-grid{grid-template-columns:repeat(2,1fr)}
-  .testi-grid{grid-template-columns:1fr}
-  .about-layout{grid-template-columns:1fr;gap:48px}
-  .contact-layout{grid-template-columns:1fr;gap:48px}
-  .footer-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:600px){
-  .stats{grid-template-columns:1fr 1fr}.stat{padding:24px}
-  .domains-grid{grid-template-columns:1fr 1fr}
-  .process-grid{grid-template-columns:1fr;gap:32px}
-  .fg-row{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr}
-  footer{padding:40px 24px 28px}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <div id="bar"></div>
 
+<!-- Mobile Drawer -->
 <div class="drawer" id="drawer">
-  <button class="drawer-close" onclick="closeDrawer()">✕</button>
+  <button class="drawer-close" onclick="closeDrawer()">&#10005;</button>
   <a href="#services" onclick="closeDrawer()">Services</a>
   <a href="#tech" onclick="closeDrawer()">Technologies</a>
-  <a href="#domains" onclick="closeDrawer()">Domains</a>
-  <a href="#about" onclick="closeDrawer()">About</a>
+  <a href="#team" onclick="closeDrawer()">Team</a>
+  <a href="#careers" onclick="closeDrawer()">Careers</a>
+  <a href="blogs.html" onclick="closeDrawer()">Blog</a>
   <a href="#contact" onclick="closeDrawer()">Contact</a>
 </div>
 
+<!-- Nav -->
 <nav id="nav">
-  <a class="nav-logo" href="#">
-    <div class="logo-mark">DG</div>
+  <a class="nav-logo" href="/">
+    <div class="logo-mark"><img src="assets/logos/gigi-gabbar-logo.png" alt="DG"></div>
     <span class="logo-name">Digital Gabbar</span>
   </a>
   <div class="nav-links">
     <a href="#services">Services</a>
     <a href="#tech">Tech</a>
-    <a href="#domains">Domains</a>
-    <a href="#about">About</a>
-    <a href="#contact" class="cta">Get in touch</a>
+    <a href="#team">Team</a>
+    <a href="#careers">Careers</a>
+    <a href="blogs.html">Blog</a>
+    <a href="contact.html" class="cta">Get in touch</a>
   </div>
-  <div class="hamburger" onclick="openDrawer()"><span></span><span></span><span></span></div>
+  <button class="hamburger" onclick="openDrawer()"><span></span><span></span><span></span></button>
 </nav>
 
+<!-- ============================================
+     HERO
+     ============================================ -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-label">Software Development Studio</div>
     <h1>We build software<br>that <em>actually</em> ships.</h1>
     <p>Digital Gabbar is a full-stack development studio based in Ahmedabad. We take your idea from architecture to production — on time, on budget, and built to last.</p>
     <div class="hero-actions">
-      <button class="btn btn-solid" onclick="goto('#contact')">Start a project</button>
-      <button class="btn btn-outline" onclick="goto('#services')">Our services</button>
+      <a class="btn btn-solid" href="contact.html">Start a project</a>
+      <a class="btn btn-outline" href="#services">Our services</a>
     </div>
-    <div class="hero-tw">Currently building → <span class="tw" id="tw"></span></div>
+    <div class="hero-tw">Currently building &rarr; <span class="tw" id="tw"></span></div>
   </div>
 </section>
 
+<!-- Stats -->
 <div class="stats reveal">
-  <div class="stat"><div class="stat-n" data-c="50">0</div><div class="stat-l">Projects delivered</div></div>
-  <div class="stat"><div class="stat-n" data-c="6">0</div><div class="stat-l">Years in business</div></div>
-  <div class="stat"><div class="stat-n" data-c="98">0</div><div class="stat-l">Client satisfaction %</div></div>
-  <div class="stat"><div class="stat-n" data-c="8">0</div><div class="stat-l">Core technologies</div></div>
+  <div class="stat"><div class="stat-n" data-c="50" data-sfx="+">0</div><div class="stat-l">Projects delivered</div></div>
+  <div class="stat"><div class="stat-n" data-c="6" data-sfx="+">0</div><div class="stat-l">Years in business</div></div>
+  <div class="stat"><div class="stat-n" data-c="98" data-sfx="%">0</div><div class="stat-l">Client satisfaction</div></div>
+  <div class="stat"><div class="stat-n" data-c="12" data-sfx="+">0</div><div class="stat-l">Core technologies</div></div>
 </div>
 
+<!-- ============================================
+     SERVICES
+     ============================================ -->
 <section id="services">
   <div class="s">
     <div class="reveal">
@@ -251,16 +76,95 @@ footer{border-top:1px solid var(--border);padding:56px 48px 36px}
       <p class="s-sub">End-to-end digital product development. Strategy, design, engineering, and deployment under one roof.</p>
     </div>
     <div class="services-wrap">
-      <div class="service-row reveal"><div class="s-num">01</div><div class="s-body"><h3>Web Development</h3><p>Modern, performant web applications built with Angular and .NET Core. SEO-ready, accessible, and optimized for scale.</p></div><div class="s-chip">Angular · .NET</div></div>
-      <div class="service-row reveal d1"><div class="s-num">02</div><div class="s-body"><h3>Mobile Applications</h3><p>Cross-platform Android & iOS apps with .NET MAUI. One codebase, native performance, shared business logic.</p></div><div class="s-chip">.NET MAUI</div></div>
-      <div class="service-row reveal d2"><div class="s-num">03</div><div class="s-body"><h3>Custom Software</h3><p>Enterprise applications, internal tools, and SaaS platforms built around your exact workflow — no off-the-shelf compromises.</p></div><div class="s-chip">Full Stack</div></div>
-      <div class="service-row reveal d3"><div class="s-num">04</div><div class="s-body"><h3>API Design & Integration</h3><p>Clean RESTful APIs, microservices, third-party integrations, and real-time pipelines that scale reliably.</p></div><div class="s-chip">Node · .NET</div></div>
-      <div class="service-row reveal"><div class="s-num">05</div><div class="s-body"><h3>Legacy Modernisation</h3><p>We assess, refactor, and migrate aging systems — with zero disruption to your ongoing operations.</p></div><div class="s-chip">MVC · WinForms</div></div>
-      <div class="service-row reveal d1"><div class="s-num">06</div><div class="s-body"><h3>Technical Consulting</h3><p>Architecture reviews, stack selection, performance audits, and technology roadmaps for growing teams.</p></div><div class="s-chip">Strategy</div></div>
+      <div class="service-row reveal">
+        <div class="s-num">01</div>
+        <div class="s-body">
+          <h3>Website Modernization</h3>
+          <p>Upgrade outdated designs to modern UI/UX standards. We transform legacy interfaces into fast, responsive, and visually compelling experiences that users love.</p>
+        </div>
+        <div class="s-chip">UI/UX &middot; Figma</div>
+      </div>
+      <div class="service-row reveal d1">
+        <div class="s-num">02</div>
+        <div class="s-body">
+          <h3>Full Application Development</h3>
+          <p>Web applications and mobile apps built from the ground up. Architecture, development, testing, and deployment — we handle the full lifecycle.</p>
+        </div>
+        <div class="s-chip">Web &middot; Mobile</div>
+      </div>
+      <div class="service-row reveal d2">
+        <div class="s-num">03</div>
+        <div class="s-body">
+          <h3>Website Development</h3>
+          <p>Static marketing sites, dynamic web portals, e-commerce platforms, and SaaS dashboards — built with performance, SEO, and accessibility in mind.</p>
+        </div>
+        <div class="s-chip">Static &middot; Dynamic</div>
+      </div>
+      <div class="service-row reveal d3">
+        <div class="s-num">04</div>
+        <div class="s-body">
+          <h3>API Design &amp; Integration</h3>
+          <p>Clean RESTful APIs, microservices, third-party integrations, and real-time pipelines that scale reliably across your entire ecosystem.</p>
+        </div>
+        <div class="s-chip">REST &middot; Microservices</div>
+      </div>
+      <div class="service-row reveal">
+        <div class="s-num">05</div>
+        <div class="s-body">
+          <h3>Legacy Modernisation</h3>
+          <p>We assess, refactor, and migrate aging systems — WebForms, WinForms, MVC — with zero disruption to your ongoing operations.</p>
+        </div>
+        <div class="s-chip">.NET &middot; Migration</div>
+      </div>
+      <div class="service-row reveal d1">
+        <div class="s-num">06</div>
+        <div class="s-body">
+          <h3>Technical Consulting</h3>
+          <p>Architecture reviews, stack selection, performance audits, and technology roadmaps for growing teams that need expert guidance.</p>
+        </div>
+        <div class="s-chip">Strategy</div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ============================================
+     HIRE DEVELOPERS / FREELANCER NETWORK
+     ============================================ -->
+<section class="hire-section">
+  <div class="s">
+    <div class="reveal">
+      <div class="s-label">Freelancer network</div>
+      <h2 class="s-title">Hire <em>verified</em> developers</h2>
+      <p class="s-sub">Access our network of pre-vetted engineers. Faster delivery, professional contracts, and quality you can trust.</p>
+    </div>
+    <div class="hire-grid reveal">
+      <div class="hire-card">
+        <div class="hire-icon">&#10004;</div>
+        <h3>Verified Developers</h3>
+        <p>Every developer in our network goes through technical assessment and background verification. You get talent that's proven, not just claimed.</p>
+      </div>
+      <div class="hire-card">
+        <div class="hire-icon">&#9889;</div>
+        <h3>Faster Delivery</h3>
+        <p>Pre-built teams ready to start within days, not weeks. Parallel workstreams and proven workflows mean your project ships sooner.</p>
+      </div>
+      <div class="hire-card">
+        <div class="hire-icon">&#128196;</div>
+        <h3>Contract-Based Work</h3>
+        <p>Clear scopes, milestones, and deliverables. Professional contracts protect both parties and ensure accountability throughout.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px" class="reveal">
+      <a class="btn btn-solid" href="contact.html">Hire developers &rarr;</a>
+      <a class="btn btn-outline" href="contact.html" style="margin-left:12px">Start your project &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     TECH
+     ============================================ -->
 <section id="tech" class="tech-section">
   <div class="s">
     <div class="tech-grid">
@@ -268,22 +172,26 @@ footer{border-top:1px solid var(--border);padding:56px 48px 36px}
         <div class="s-label">Stack</div>
         <h2 class="s-title">Technologies<br>we <em>master</em></h2>
         <p class="s-sub" style="margin-bottom:32px">We pick the right tool for each problem — no dogma, just what works at your scale and complexity.</p>
-        <button class="btn btn-outline" onclick="goto('#contact')">Discuss your stack →</button>
+        <a class="btn btn-outline" href="contact.html">Discuss your stack &rarr;</a>
       </div>
       <div class="tech-list reveal">
-        <div class="tech-row"><span class="t-name">Angular</span><span class="t-cat">Frontend</span></div>
-        <div class="tech-row"><span class="t-name">.NET Core</span><span class="t-cat">Backend</span></div>
-        <div class="tech-row"><span class="t-name">.NET MAUI</span><span class="t-cat">Mobile</span></div>
-        <div class="tech-row"><span class="t-name">Node.js</span><span class="t-cat">Backend</span></div>
-        <div class="tech-row"><span class="t-name">MVC · WebForms · WinForms</span><span class="t-cat">Desktop / Web</span></div>
-        <div class="tech-row"><span class="t-name">SQL Server · PostgreSQL</span><span class="t-cat">Database</span></div>
-        <div class="tech-row"><span class="t-name">Azure · AWS</span><span class="t-cat">Cloud</span></div>
-        <div class="tech-row"><span class="t-name">Docker · CI/CD</span><span class="t-cat">DevOps</span></div>
+        <div class="tech-row"><span class="t-name">.NET Core / Framework</span><span class="t-cat">Backend</span></div>
+        <div class="tech-row"><span class="t-name">React / Angular / Vue</span><span class="t-cat">Frontend</span></div>
+        <div class="tech-row"><span class="t-name">Node.js / Express</span><span class="t-cat">Backend</span></div>
+        <div class="tech-row"><span class="t-name">Java Spring Boot</span><span class="t-cat">Backend</span></div>
+        <div class="tech-row"><span class="t-name">WebForms / WinForms / MVC</span><span class="t-cat">Legacy .NET</span></div>
+        <div class="tech-row"><span class="t-name">MERN / MEVN Stack</span><span class="t-cat">Full Stack</span></div>
+        <div class="tech-row"><span class="t-name">SQL Server / PostgreSQL / MongoDB</span><span class="t-cat">Database</span></div>
+        <div class="tech-row"><span class="t-name">Figma / UI/UX Design</span><span class="t-cat">Design</span></div>
+        <div class="tech-row"><span class="t-name">Azure / AWS / Docker</span><span class="t-cat">Cloud &amp; DevOps</span></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ============================================
+     DOMAINS
+     ============================================ -->
 <section id="domains">
   <div class="s">
     <div class="reveal">
@@ -292,18 +200,21 @@ footer{border-top:1px solid var(--border);padding:56px 48px 36px}
       <p class="s-sub">We've worked across enough verticals that we come with context, not just code.</p>
     </div>
     <div class="domains-grid reveal">
-      <div class="d-cell"><div class="di">🎮</div><div class="dn">Gaming Platforms</div></div>
-      <div class="d-cell"><div class="di">🎫</div><div class="dn">Ticketing Systems</div></div>
-      <div class="d-cell"><div class="di">💊</div><div class="dn">Pharma Solutions</div></div>
-      <div class="d-cell"><div class="di">💼</div><div class="dn">Freelancing Portals</div></div>
-      <div class="d-cell"><div class="di">📊</div><div class="dn">CRM Systems</div></div>
-      <div class="d-cell"><div class="di">🛠</div><div class="dn">SaaS Management</div></div>
-      <div class="d-cell"><div class="di">🏦</div><div class="dn">FinTech</div></div>
-      <div class="d-cell"><div class="di">🛒</div><div class="dn">E-Commerce</div></div>
+      <div class="d-cell"><div class="di">&#127918;</div><div class="dn">Gaming Platforms</div></div>
+      <div class="d-cell"><div class="di">&#127915;</div><div class="dn">Ticketing Systems</div></div>
+      <div class="d-cell"><div class="di">&#128138;</div><div class="dn">Pharma Solutions</div></div>
+      <div class="d-cell"><div class="di">&#128188;</div><div class="dn">Freelancing Portals</div></div>
+      <div class="d-cell"><div class="di">&#128202;</div><div class="dn">CRM Systems</div></div>
+      <div class="d-cell"><div class="di">&#128736;</div><div class="dn">SaaS Management</div></div>
+      <div class="d-cell"><div class="di">&#127974;</div><div class="dn">FinTech</div></div>
+      <div class="d-cell"><div class="di">&#128722;</div><div class="dn">E-Commerce</div></div>
     </div>
   </div>
 </section>
 
+<!-- ============================================
+     PROCESS
+     ============================================ -->
 <section style="border-top:1px solid var(--border);background:var(--bg2)">
   <div class="s">
     <div class="reveal">
@@ -313,12 +224,86 @@ footer{border-top:1px solid var(--border);padding:56px 48px 36px}
     <div class="process-grid">
       <div class="process-step reveal"><div class="p-num">01</div><div class="p-title">Discovery</div><p class="p-desc">We dig into your goals, users, and constraints. Define scope, KPIs, and what success actually looks like.</p></div>
       <div class="process-step reveal d1"><div class="p-num">02</div><div class="p-title">Architecture</div><p class="p-desc">Stack selection, data models, API contracts, and infrastructure blueprint — agreed before a line of code is written.</p></div>
-      <div class="process-step reveal d2"><div class="p-num">03</div><div class="p-title">Build & Iterate</div><p class="p-desc">Agile sprints with weekly demos. Continuous testing, code reviews, transparent progress tracking.</p></div>
-      <div class="process-step reveal d3"><div class="p-num">04</div><div class="p-title">Launch & Support</div><p class="p-desc">Smooth deployment, performance tuning, and ongoing maintenance as your product grows.</p></div>
+      <div class="process-step reveal d2"><div class="p-num">03</div><div class="p-title">Build &amp; Iterate</div><p class="p-desc">Agile sprints with weekly demos. Continuous testing, code reviews, transparent progress tracking.</p></div>
+      <div class="process-step reveal d3"><div class="p-num">04</div><div class="p-title">Launch &amp; Support</div><p class="p-desc">Smooth deployment, performance tuning, and ongoing maintenance as your product grows.</p></div>
     </div>
   </div>
 </section>
 
+<!-- ============================================
+     TEAM
+     ============================================ -->
+<section id="team">
+  <div class="s">
+    <div class="reveal">
+      <div class="s-label">Our people</div>
+      <h2 class="s-title">Meet the <em>team</em></h2>
+      <p class="s-sub">A tight-knit group of engineers, designers, and strategists who ship products that matter.</p>
+    </div>
+    <div class="team-grid reveal">
+      <div class="team-card">
+        <div class="team-avatar">HB</div>
+        <div class="team-name">Hrutvik Barot</div>
+        <div class="team-role">Founder &amp; Lead Engineer</div>
+        <div class="team-tags">
+          <span class="team-tag">.NET</span>
+          <span class="team-tag">Angular</span>
+          <span class="team-tag">Architecture</span>
+        </div>
+        <div class="team-socials">
+          <a class="team-social" href="https://github.com/root-vik" target="_blank" rel="noopener">GH</a>
+          <a class="team-social" href="https://linkedin.com" target="_blank" rel="noopener">in</a>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#34d399,#06b6d4)">AP</div>
+        <div class="team-name">Arjun Patel</div>
+        <div class="team-role">Senior Full Stack Developer</div>
+        <div class="team-tags">
+          <span class="team-tag">React</span>
+          <span class="team-tag">Node.js</span>
+          <span class="team-tag">MongoDB</span>
+        </div>
+        <div class="team-socials">
+          <a class="team-social" href="#" target="_blank" rel="noopener">GH</a>
+          <a class="team-social" href="#" target="_blank" rel="noopener">in</a>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">NS</div>
+        <div class="team-name">Neha Shah</div>
+        <div class="team-role">UI/UX Designer</div>
+        <div class="team-tags">
+          <span class="team-tag">Figma</span>
+          <span class="team-tag">UI/UX</span>
+          <span class="team-tag">Prototyping</span>
+        </div>
+        <div class="team-socials">
+          <a class="team-social" href="#" target="_blank" rel="noopener">Dr</a>
+          <a class="team-social" href="#" target="_blank" rel="noopener">in</a>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)">RD</div>
+        <div class="team-name">Rohan Desai</div>
+        <div class="team-role">Backend Engineer</div>
+        <div class="team-tags">
+          <span class="team-tag">Java</span>
+          <span class="team-tag">Spring Boot</span>
+          <span class="team-tag">AWS</span>
+        </div>
+        <div class="team-socials">
+          <a class="team-social" href="#" target="_blank" rel="noopener">GH</a>
+          <a class="team-social" href="#" target="_blank" rel="noopener">in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     TESTIMONIALS
+     ============================================ -->
 <section class="testi-section">
   <div class="s">
     <div class="reveal">
@@ -326,14 +311,76 @@ footer{border-top:1px solid var(--border);padding:56px 48px 36px}
       <h2 class="s-title">What people say</h2>
     </div>
     <div class="testi-grid reveal">
-      <div class="t-cell"><p class="t-q">"Digital Gabbar delivered our gaming platform ahead of schedule. The architecture is solid — we scaled to 10K users with zero downtime."</p><div class="t-who"><div class="t-av">RK</div><div><div class="t-name">Rahul Kapoor</div><div class="t-role">Founder, GameZone India</div></div></div></div>
-      <div class="t-cell"><p class="t-q">"Their .NET MAUI expertise is excellent. Our pharma app runs flawlessly on both platforms with complex offline sync."</p><div class="t-who"><div class="t-av">SP</div><div><div class="t-name">Sneha Patel</div><div class="t-role">CTO, MediSync</div></div></div></div>
-      <div class="t-cell"><p class="t-q">"We had a half-built CRM nightmare. They rewrote it cleanly in 3 months. Excellent communication, no surprises."</p><div class="t-who"><div class="t-av">AM</div><div><div class="t-name">Arjun Mehta</div><div class="t-role">CEO, SalesPath</div></div></div></div>
-      <div class="t-cell"><p class="t-q">"Our SaaS needed serious performance work. They cut API response times by 70%. Meticulous engineers, highly recommended."</p><div class="t-who"><div class="t-av">PD</div><div><div class="t-name">Priya Deshpande</div><div class="t-role">Product Lead, TicketNow</div></div></div></div>
+      <div class="t-cell"><p class="t-q">"Digital Gabbar delivered our gaming platform ahead of schedule. The architecture is solid — we scaled to 10K users with zero downtime."</p><div class="t-who"><div class="t-av">RK</div><div><div class="t-name-testi">Rahul Kapoor</div><div class="t-role">Founder, GameZone India</div></div></div></div>
+      <div class="t-cell"><p class="t-q">"Their .NET MAUI expertise is excellent. Our pharma app runs flawlessly on both platforms with complex offline sync."</p><div class="t-who"><div class="t-av">SP</div><div><div class="t-name-testi">Sneha Patel</div><div class="t-role">CTO, MediSync</div></div></div></div>
+      <div class="t-cell"><p class="t-q">"We had a half-built CRM nightmare. They rewrote it cleanly in 3 months. Excellent communication, no surprises."</p><div class="t-who"><div class="t-av">AM</div><div><div class="t-name-testi">Arjun Mehta</div><div class="t-role">CEO, SalesPath</div></div></div></div>
+      <div class="t-cell"><p class="t-q">"Our SaaS needed serious performance work. They cut API response times by 70%. Meticulous engineers."</p><div class="t-who"><div class="t-av">PD</div><div><div class="t-name-testi">Priya Deshpande</div><div class="t-role">Product Lead, TicketNow</div></div></div></div>
     </div>
   </div>
 </section>
 
+<!-- ============================================
+     HR / JOB ASSISTANCE
+     ============================================ -->
+<section id="careers" class="hr-section">
+  <div class="s">
+    <div class="hr-layout">
+      <div class="reveal">
+        <div class="s-label">Careers</div>
+        <h2 class="s-title">We help you<br>get <em>hired</em></h2>
+        <p class="s-sub" style="margin-bottom:8px">Our HR division connects talented developers with the right opportunities. No upfront cost — we invest in your success.</p>
+        <div class="hr-features">
+          <div class="hr-feat">
+            <div class="hr-ico">&#128269;</div>
+            <div>
+              <h4>Job Matching</h4>
+              <p>We actively source and match candidates with companies that align with their skills, experience, and career goals.</p>
+            </div>
+          </div>
+          <div class="hr-feat">
+            <div class="hr-ico">&#127891;</div>
+            <div>
+              <h4>Interview Preparation</h4>
+              <p>Resume reviews, mock interviews, and technical coaching to help you put your best foot forward in every opportunity.</p>
+            </div>
+          </div>
+          <div class="hr-feat">
+            <div class="hr-ico">&#128176;</div>
+            <div>
+              <h4>Zero Upfront Cost</h4>
+              <p>You pay nothing until you land the job. Our fee is 50% of your first month's CTC — and it's negotiable.</p>
+            </div>
+          </div>
+          <div class="hr-feat">
+            <div class="hr-ico">&#129309;</div>
+            <div>
+              <h4>Long-Term Support</h4>
+              <p>Our relationship doesn't end at placement. We provide ongoing career guidance and support as you grow.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="hr-highlight">
+          <div class="hr-highlight-big">&#8377;0</div>
+          <div style="font-size:14px;color:var(--white);font-weight:600;margin-bottom:4px">Upfront Cost</div>
+          <div class="hr-highlight-sub">You only pay after you're successfully placed. 50% of first month's CTC (negotiable). We succeed when you succeed.</div>
+          <a class="btn btn-green" href="contact.html?service=careers">Get Hired &rarr;</a>
+          <div class="hr-trust">
+            <div class="hr-trust-badge">No registration fee</div>
+            <div class="hr-trust-badge">Verified employers</div>
+            <div class="hr-trust-badge">Confidential process</div>
+            <div class="hr-trust-badge">Salary negotiation support</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     ABOUT
+     ============================================ -->
 <section id="about" style="border-top:1px solid var(--border)">
   <div class="s">
     <div class="about-layout">
@@ -343,20 +390,50 @@ footer{border-top:1px solid var(--border);padding:56px 48px 36px}
         <p>We're a tight-knit group of engineers and product thinkers who've been in the trenches — building startups, rescuing legacy systems, and architecting enterprise platforms.</p>
         <p>No bloated teams, no middlemen. You work directly with the people building your product. We ask hard questions early so there are no surprises later.</p>
         <p><strong>We're always available, dedicated to the work, and genuinely invested in your success.</strong></p>
-        <div style="margin-top:32px"><button class="btn btn-solid" onclick="goto('#contact')">Work with us</button></div>
+        <div style="margin-top:32px"><a class="btn btn-solid" href="contact.html">Work with us</a></div>
       </div>
       <div class="reveal">
         <div class="about-metrics">
           <div class="am"><div class="am-v">50+</div><div class="am-k">Projects shipped</div></div>
           <div class="am"><div class="am-v">6yr</div><div class="am-k">In business</div></div>
           <div class="am"><div class="am-v">24/7</div><div class="am-k">Support SLA</div></div>
-          <div class="am"><div class="am-v">🇮🇳</div><div class="am-k">Ahmedabad, India</div></div>
+          <div class="am"><div class="am-v">&#127470;&#127475;</div><div class="am-k">Ahmedabad, India</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ============================================
+     PARTNER SECTION
+     ============================================ -->
+<section class="partner-section">
+  <div class="s">
+    <div class="reveal">
+      <div class="s-label">Partnership</div>
+      <h2 class="s-title">Our Travel <em>Partner</em></h2>
+      <p class="s-sub">We're proud to have designed and developed platforms beyond software — including travel and hospitality.</p>
+    </div>
+    <div class="partner-card reveal">
+      <div class="partner-logo">
+        <div class="partner-logo-icon">&#9992;</div>
+        <h3>Wander Nest Holidays</h3>
+        <p>wandernestholidays.in</p>
+      </div>
+      <div class="partner-info">
+        <div class="partner-badge">&#10024; Built by Digital Gabbar</div>
+        <h3>Crafted with care — designed and developed by our team</h3>
+        <p>Wander Nest Holidays is a travel and tour platform that we designed and built from the ground up. From branding to booking flows, every pixel and line of code reflects our commitment to quality.</p>
+        <p>This partnership showcases our ability to deliver complete digital products across industries — not just software, but experiences.</p>
+        <a class="btn btn-solid" href="https://wandernestholidays.in" target="_blank" rel="noopener">Visit Website &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CONTACT
+     ============================================ -->
 <section id="contact" class="contact-section">
   <div class="s">
     <div class="contact-layout">
@@ -364,93 +441,72 @@ footer{border-top:1px solid var(--border);padding:56px 48px 36px}
         <div class="s-label">Contact</div>
         <h2 class="s-title">Let's build<br>something <em>together</em></h2>
         <p class="s-sub" style="margin-bottom:40px">Tell us what you're working on. We'll get back within 24 hours with a clear plan.</p>
-        <div class="ci"><div class="ci-ico">📧</div><div><div class="ci-l">Email</div><div class="ci-v">email@digitalgabbar.com</div></div></div>
-        <div class="ci"><div class="ci-ico">📞</div><div><div class="ci-l">Phone / WhatsApp</div><div class="ci-v">+91 99999 99999</div></div></div>
-        <div class="ci"><div class="ci-ico">📍</div><div><div class="ci-l">Location</div><div class="ci-v">Ahmedabad, Gujarat, India</div></div></div>
+        <div class="ci"><div class="ci-ico">&#128231;</div><div><div class="ci-l">Email</div><div class="ci-v"><a href="mailto:rootvik23@gmail.com">rootvik23@gmail.com</a></div></div></div>
+        <div class="ci"><div class="ci-ico">&#128222;</div><div><div class="ci-l">Phone / WhatsApp</div><div class="ci-v"><a href="tel:+917567279350">+91 7567279350</a></div></div></div>
+        <div class="ci"><div class="ci-ico">&#128205;</div><div><div class="ci-l">Location</div><div class="ci-v">Ahmedabad, Gujarat, India</div></div></div>
       </div>
-      <div class="reveal">
-        <div class="fg-row"><div class="fg"><label>Name</label><input type="text" placeholder="Your name"></div><div class="fg"><label>Email</label><input type="email" placeholder="you@company.com"></div></div>
-        <div class="fg"><label>Service</label><select><option value="">Select a service...</option><option>Web Development</option><option>Mobile Application</option><option>Custom Software</option><option>API & Integration</option><option>Legacy Modernisation</option><option>Technical Consulting</option></select></div>
-        <div class="fg"><label>Budget range</label><select><option value="">Select...</option><option>Under ₹1L</option><option>₹1L – ₹5L</option><option>₹5L – ₹15L</option><option>₹15L+</option></select></div>
-        <div class="fg"><label>Message</label><textarea placeholder="Describe your project, timeline, and any specific needs..."></textarea></div>
-        <button class="form-btn" onclick="submitForm()">Send message →</button>
+      <div class="reveal" id="contactForm">
+        <div class="fg-row">
+          <div class="fg"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div>
+          <div class="fg"><label>Email</label><input type="email" name="email" placeholder="you@company.com" required></div>
+        </div>
+        <div class="fg"><label>Service</label><select name="service"><option value="">Select a service...</option><option>Web Development</option><option>Mobile Application</option><option>Custom Software</option><option>API &amp; Integration</option><option>Legacy Modernisation</option><option>Hire Developers</option><option>HR / Job Assistance</option><option>Technical Consulting</option></select></div>
+        <div class="fg"><label>Budget range</label><select name="budget"><option value="">Select...</option><option>Under &#8377;1L</option><option>&#8377;1L &ndash; &#8377;5L</option><option>&#8377;5L &ndash; &#8377;15L</option><option>&#8377;15L+</option></select></div>
+        <div class="fg"><label>Message</label><textarea name="message" placeholder="Describe your project, timeline, and any specific needs..." required></textarea></div>
+        <button class="form-btn" onclick="submitForm()">Send message &rarr;</button>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ============================================
+     FOOTER
+     ============================================ -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="nav-logo" style="display:inline-flex"><div class="logo-mark">DG</div><span class="logo-name" style="margin-left:10px">Digital Gabbar</span></div>
+      <div class="nav-logo" style="display:inline-flex"><div class="logo-mark"><img src="assets/logos/gigi-gabbar-logo.png" alt="DG"></div><span class="logo-name" style="margin-left:10px">Digital Gabbar</span></div>
       <p>A software development studio building products that people use and businesses rely on.</p>
+      <div class="footer-contact">
+        <a href="mailto:rootvik23@gmail.com">&#128231; rootvik23@gmail.com</a>
+        <a href="tel:+917567279350">&#128222; +91 7567279350</a>
+      </div>
     </div>
-    <div class="fcol"><h5>Services</h5><a href="#">Web Development</a><a href="#">Mobile Apps</a><a href="#">Custom Software</a><a href="#">API Design</a><a href="#">Consulting</a></div>
-    <div class="fcol"><h5>Technologies</h5><a href="#">Angular</a><a href="#">.NET Core</a><a href="#">.NET MAUI</a><a href="#">Node.js</a><a href="#">Azure</a></div>
-    <div class="fcol"><h5>Company</h5><a href="#">About</a><a href="#">Work</a><a href="#">Blog</a><a href="#">Careers</a><a href="#contact">Contact</a></div>
+    <div class="fcol">
+      <h5>Services</h5>
+      <a href="#services">Web Development</a>
+      <a href="#services">Mobile Apps</a>
+      <a href="#services">Custom Software</a>
+      <a href="#services">API Design</a>
+      <a href="#services">Modernisation</a>
+    </div>
+    <div class="fcol">
+      <h5>Technologies</h5>
+      <a href="#tech">.NET Core</a>
+      <a href="#tech">React / Angular</a>
+      <a href="#tech">Node.js</a>
+      <a href="#tech">Spring Boot</a>
+      <a href="#tech">Azure / AWS</a>
+    </div>
+    <div class="fcol">
+      <h5>Company</h5>
+      <a href="#about">About</a>
+      <a href="#team">Team</a>
+      <a href="blogs.html">Blog</a>
+      <a href="#careers">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Digital Gabbar. All rights reserved.</span>
+    <span>&copy; 2026 Digital Gabbar. All rights reserved.</span>
     <span>Ahmedabad, India</span>
-    <span>Privacy · Terms</span>
+    <span>Privacy &middot; Terms</span>
   </div>
 </footer>
 
-<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</button>
 <div id="toast"></div>
 
-<script>
-window.addEventListener('scroll',()=>{
-  const h=document.body.scrollHeight-innerHeight;
-  document.getElementById('bar').style.width=(scrollY/h*100)+'%';
-  document.getElementById('nav').classList.toggle('scrolled',scrollY>40);
-  document.getElementById('btt').classList.toggle('show',scrollY>500);
-  document.querySelectorAll('.reveal').forEach(el=>{
-    if(el.getBoundingClientRect().top<innerHeight-60)el.classList.add('in');
-  });
-  document.querySelectorAll('[data-c]').forEach(el=>{
-    if(el.dataset.done)return;
-    if(el.getBoundingClientRect().top<innerHeight-40){
-      el.dataset.done=1;
-      const t=+el.dataset.c;
-      const sfx=t===98?'%':'+';
-      let v=0;
-      const step=()=>{v=Math.min(v+Math.ceil(t/40),t);el.textContent=v+sfx;if(v<t)requestAnimationFrame(step);};
-      step();
-    }
-  });
-});
-
-const words=['Angular SPAs','.NET Core APIs','Cross-platform Apps','SaaS Platforms','Enterprise Software'];
-let wi=0,ci=0,del=false;
-function tw(){
-  const w=words[wi],el=document.getElementById('tw');
-  if(!del){el.textContent=w.slice(0,++ci);if(ci===w.length){del=true;setTimeout(tw,1600);return;}}
-  else{el.textContent=w.slice(0,--ci);if(ci===0){del=false;wi=(wi+1)%words.length;}}
-  setTimeout(tw,del?45:85);
-}
-tw();
-
-function openDrawer(){document.getElementById('drawer').classList.add('open');document.body.style.overflow='hidden';}
-function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.body.style.overflow='';}
-
-let tt;
-function toast(msg){
-  const el=document.getElementById('toast');
-  el.textContent=msg;el.classList.add('show');
-  clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),2800);
-}
-
-function submitForm(){
-  const inputs=[...document.querySelectorAll('#contact input,#contact textarea')];
-  if(inputs.some(i=>!i.value.trim())){toast('Please fill all required fields.');return;}
-  toast("Message sent — we'll be in touch within 24 hours.");
-  inputs.forEach(i=>i.value='');
-  document.querySelectorAll('#contact select').forEach(s=>s.selectedIndex=0);
-}
-
-function goto(sel){document.querySelector(sel)?.scrollIntoView({behavior:'smooth'});}
-window.dispatchEvent(new Event('scroll'));
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
