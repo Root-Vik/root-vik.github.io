@@ -28,13 +28,13 @@
       // Purple to pink color
       const t = Math.random();
       if (t < 0.4) {
-        this.color = '139,92,246';   // purple
-      } else if (t < 0.7) {
-        this.color = '217,70,239';   // fuchsia
-      } else if (t < 0.85) {
-        this.color = '192,192,220';  // silver
+        this.color = '0,210,255';    // cyan
+      } else if (t < 0.65) {
+        this.color = '99,102,241';   // indigo
+      } else if (t < 0.82) {
+        this.color = '148,163,184';  // silver-blue
       } else {
-        this.color = '236,72,153';   // pink
+        this.color = '224,231,255';  // periwinkle white
       }
     }
     update() {
@@ -98,8 +98,8 @@
       const tailX = this.x - Math.cos(this.angle) * this.len * 0.7;
       const tailY = this.y - Math.sin(this.angle) * this.len * 0.7;
       const grad = ctx.createLinearGradient(tailX, tailY + yOff, this.x, this.y + yOff);
-      grad.addColorStop(0, `rgba(192,192,220,0)`);
-      grad.addColorStop(1, `rgba(192,192,220,${this.opacity})`);
+      grad.addColorStop(0, `rgba(0,210,255,0)`);
+      grad.addColorStop(1, `rgba(0,210,255,${this.opacity})`);
       ctx.beginPath();
       ctx.moveTo(tailX, tailY + yOff);
       ctx.lineTo(this.x, this.y + yOff);

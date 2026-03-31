@@ -1,25 +1,27 @@
 /* ============================================
-   DIGITAL GABBAR - Main JavaScript
+   DIGI GABBAR — Main JS
+   Pure vanilla. No libraries. Buttery smooth.
    ============================================ */
 
 // ---- Scroll: progress bar, nav, reveal, counters ----
 function initScroll() {
-  window.addEventListener('scroll', () => {
+  const bar = document.getElementById('bar');
+  const nav = document.getElementById('nav');
+  const btt = document.getElementById('btt');
+  const reveals = document.querySelectorAll('.reveal');
+  const counters = document.querySelectorAll('[data-c]');
+
+  const onScroll = () => {
     const h = document.body.scrollHeight - innerHeight;
-    const bar = document.getElementById('bar');
     if (bar) bar.style.width = (scrollY / h * 100) + '%';
-
-    const nav = document.getElementById('nav');
     if (nav) nav.classList.toggle('scrolled', scrollY > 40);
-
-    const btt = document.getElementById('btt');
     if (btt) btt.classList.toggle('show', scrollY > 500);
 
-    document.querySelectorAll('.reveal').forEach(el => {
+    reveals.forEach(el => {
       if (el.getBoundingClientRect().top < innerHeight - 60) el.classList.add('in');
     });
 
-    document.querySelectorAll('[data-c]').forEach(el => {
+    counters.forEach(el => {
       if (el.dataset.done) return;
       if (el.getBoundingClientRect().top < innerHeight - 40) {
         el.dataset.done = 1;
@@ -34,8 +36,10 @@ function initScroll() {
         step();
       }
     });
-  });
-  window.dispatchEvent(new Event('scroll'));
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 }
 
 // ---- Typewriter ----
@@ -56,6 +60,32 @@ function initTypewriter() {
     setTimeout(tw, del ? 45 : 85);
   }
   tw();
+}
+
+// ---- Hero 3D tilt on mouse (smooth, CSS-driven) ----
+function initHeroTilt() {
+  const hero = document.querySelector('.hero');
+  const brand = document.querySelector('.hero-3d');
+  if (!hero || !brand || !matchMedia('(pointer:fine)').matches) return;
+
+  let tx = 0, ty = 0, cx = 0, cy = 0;
+
+  hero.addEventListener('mousemove', e => {
+    const r = brand.getBoundingClientRect();
+    const nx = (e.clientX - r.left) / r.width - 0.5;
+    const ny = (e.clientY - r.top) / r.height - 0.5;
+    tx = ny * -12;
+    ty = nx * 14;
+  });
+
+  hero.addEventListener('mouseleave', () => { tx = 0; ty = 0; });
+
+  (function tick() {
+    cx += (tx - cx) * 0.07;
+    cy += (ty - cy) * 0.07;
+    brand.style.transform = `perspective(1200px) rotateX(${cx.toFixed(2)}deg) rotateY(${cy.toFixed(2)}deg)`;
+    requestAnimationFrame(tick);
+  })();
 }
 
 // ---- Mobile drawer ----
@@ -85,9 +115,7 @@ function goto(sel) {
   document.querySelector(sel)?.scrollIntoView({ behavior: 'smooth' });
 }
 
-// ---- Contact form submission ----
-// Email API base URL — points to WanderNest Holidays .NET app
-// Local dev: https://localhost:7223 | Production: https://wandernestholidays.in (or your deployed URL)
+// ---- Contact form ----
 const EMAIL_API = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   ? 'https://localhost:7223'
   : 'https://wandernestholidays.in';
@@ -100,23 +128,8 @@ function submitForm() {
     return;
   }
 
-  const nameEl = form ? form.querySelector('[name="name"]') : document.querySelector('#contact input[type="text"]');
-  const emailEl = form ? form.querySelector('[name="email"]') : document.querySelector('#contact input[type="email"]');
-  const messageEl = form ? form.querySelector('[name="message"]') : document.querySelector('#contact textarea');
-  const serviceEl = form ? form.querySelector('[name="service"]') : document.querySelector('#contact select');
-  const phoneEl = form ? form.querySelector('[name="phone"]') : null;
-  const companyEl = form ? form.querySelector('[name="company"]') : null;
-  const budgetEl = form ? form.querySelector('[name="budget"]') : null;
-
-  const data = {
-    name: nameEl?.value || '',
-    email: emailEl?.value || '',
-    message: messageEl?.value || '',
-    service: serviceEl?.value || '',
-    phone: phoneEl?.value || '',
-    company: companyEl?.value || '',
-    budget: budgetEl?.value || ''
-  };
+  const get = n => (form ? form.querySelector(`[name="${n}"]`) : null)?.value || '';
+  const data = { name: get('name'), email: get('email'), message: get('message'), service: get('service'), phone: get('phone'), company: get('company'), budget: get('budget') };
 
   const btn = form ? form.querySelector('.form-btn') : document.querySelector('.form-btn');
   if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
@@ -126,35 +139,22 @@ function submitForm() {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
   })
-  .then(res => {
-    if (!res.ok) throw new Error('Server error');
-    return res.json();
-  })
+  .then(res => { if (!res.ok) throw new Error(); return res.json(); })
   .then(() => {
     toast("Message sent — we'll be in touch within 24 hours.", 'success');
     inputs.forEach(i => i.value = '');
     if (form) form.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
   })
   .catch(() => {
-    // Fallback: open mailto if API is unreachable
     const subject = encodeURIComponent('New Inquiry from ' + data.name);
-    const body = encodeURIComponent(
-      'Name: ' + data.name + '\nEmail: ' + data.email +
-      (data.phone ? '\nPhone: ' + data.phone : '') +
-      (data.company ? '\nCompany: ' + data.company : '') +
-      (data.service ? '\nService: ' + data.service : '') +
-      (data.budget ? '\nBudget: ' + data.budget : '') +
-      '\n\nMessage:\n' + data.message
-    );
+    const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nService: ${data.service}\n\nMessage:\n${data.message}`);
     window.open('mailto:rootvik23@gmail.com?subject=' + subject + '&body=' + body, '_self');
     toast('Opening your email client as fallback...', 'error');
   })
-  .finally(() => {
-    if (btn) { btn.disabled = false; btn.textContent = 'Send message \u2192'; }
-  });
+  .finally(() => { if (btn) { btn.disabled = false; btn.textContent = 'Send message \u2192'; } });
 }
 
-// ---- Active nav link ----
+// ---- Active nav ----
 function setActiveNav() {
   const path = window.location.pathname;
   document.querySelectorAll('.nav-links a:not(.cta)').forEach(a => {
@@ -165,9 +165,89 @@ function setActiveNav() {
   });
 }
 
+// ---- Custom HUD Cursor ----
+function initCustomCursor() {
+  if (!matchMedia('(pointer:fine)').matches) return;
+
+  const dot = document.createElement('div');
+  dot.id = 'cursor-dot';
+  const ring = document.createElement('div');
+  ring.id = 'cursor-ring';
+  document.body.appendChild(dot);
+  document.body.appendChild(ring);
+
+  let mx = -200, my = -200, rx = -200, ry = -200;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top = my + 'px';
+  });
+
+  (function tick() {
+    rx += (mx - rx) * 0.10;
+    ry += (my - ry) * 0.10;
+    ring.style.left = rx.toFixed(1) + 'px';
+    ring.style.top = ry.toFixed(1) + 'px';
+    requestAnimationFrame(tick);
+  })();
+
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest('a,button,[onclick],.btn,.service-row,.team-card,.hire-card,.d-cell'))
+      document.body.classList.add('cursor-over');
+    else
+      document.body.classList.remove('cursor-over');
+  });
+
+  document.addEventListener('mousedown', () => {
+    document.body.classList.add('cursor-click');
+    setTimeout(() => document.body.classList.remove('cursor-click'), 280);
+  });
+}
+
+// ---- Click ripple ----
+function initClickRipple() {
+  document.addEventListener('click', e => {
+    const r = document.createElement('div');
+    r.className = 'click-ripple';
+    r.style.left = e.clientX + 'px';
+    r.style.top = e.clientY + 'px';
+    document.body.appendChild(r);
+    setTimeout(() => r.remove(), 750);
+  });
+}
+
+// ---- Scroll fx lines ----
+function initScrollFx() {
+  let lastY = 0, cooldown = false;
+  window.addEventListener('scroll', () => {
+    if (cooldown) return;
+    const delta = Math.abs(scrollY - lastY);
+    if (delta < 40) return;
+    lastY = scrollY;
+    cooldown = true;
+    setTimeout(() => cooldown = false, 120);
+
+    const count = Math.random() > 0.4 ? 2 : 1;
+    for (let i = 0; i < count; i++) {
+      setTimeout(() => {
+        const line = document.createElement('div');
+        line.className = 'scroll-fx-line';
+        line.style.top = (Math.random() * innerHeight * 0.8 + innerHeight * 0.1) + 'px';
+        document.body.appendChild(line);
+        setTimeout(() => line.remove(), 550);
+      }, i * 60);
+    }
+  }, { passive: true });
+}
+
 // ---- Init ----
 document.addEventListener('DOMContentLoaded', () => {
   initScroll();
   initTypewriter();
+  initHeroTilt();
   setActiveNav();
+  initCustomCursor();
+  initClickRipple();
+  initScrollFx();
 });

@@ -11,7 +11,8 @@
 </head>
 <body>
 
-<canvas id="stars-canvas"></canvas>
+<div id="hud-bg" aria-hidden="true"></div>
+<div id="hud-scan" aria-hidden="true"></div>
 <div id="bar"></div>
 
 <!-- Mobile Drawer -->
@@ -46,7 +47,17 @@
      HERO
      ============================================ -->
 <section class="hero">
+  <div class="hud-corners" aria-hidden="true">
+    <i class="hc-tl"></i><i class="hc-tr"></i>
+    <i class="hc-bl"></i><i class="hc-br"></i>
+  </div>
   <div class="hero-inner">
+    <div class="hero-3d" aria-hidden="true">
+      <div class="hero-3d-inner">
+        <img src="assets/logos/gigi-gabbar-logo.png" alt="">
+      </div>
+    </div>
+    <div class="hud-status"><span class="hud-dot"></span>Systems Online</div>
     <div class="hero-label">Software Development Studio</div>
     <h1>We build software<br>that <em>actually</em> ships.</h1>
     <p>Digital Gabbar is a full-stack development studio based in Ahmedabad. We take your idea from architecture to production — on time, on budget, and built to last.</p>
@@ -55,6 +66,9 @@
       <a class="btn btn-outline" href="#services">Our services</a>
     </div>
     <div class="hero-tw">Currently building &rarr; <span class="tw" id="tw"></span></div>
+  </div>
+  <div class="hero-ticker" aria-hidden="true">
+    <div class="hero-ticker-inner">// STATUS:ONLINE &nbsp;&nbsp;&nbsp; BUILD:2026 &nbsp;&nbsp;&nbsp; PROJECTS:50+ &nbsp;&nbsp;&nbsp; UPTIME:99.9% &nbsp;&nbsp;&nbsp; LOCATION:AHD.IN &nbsp;&nbsp;&nbsp; STACK:.NET+REACT+NODE &nbsp;&nbsp;&nbsp; CLIENTS:TRUSTED &nbsp;&nbsp;&nbsp; SLA:24/7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // STATUS:ONLINE &nbsp;&nbsp;&nbsp; BUILD:2026 &nbsp;&nbsp;&nbsp; PROJECTS:50+ &nbsp;&nbsp;&nbsp; UPTIME:99.9% &nbsp;&nbsp;&nbsp; LOCATION:AHD.IN &nbsp;&nbsp;&nbsp; STACK:.NET+REACT+NODE &nbsp;&nbsp;&nbsp; CLIENTS:TRUSTED &nbsp;&nbsp;&nbsp; SLA:24/7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
   </div>
 </section>
 
@@ -509,6 +523,5 @@
 <div id="toast"></div>
 
 <script src="js/main.js"></script>
-<script src="js/stars.js"></script>
 </body>
 </html>
