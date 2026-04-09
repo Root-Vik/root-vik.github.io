@@ -4,26 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Digital Gabbar — Software Development Studio</title>
-<meta name="description" content="Digital Gabbar is a full-stack software development studio based in Ahmedabad, India. We build web apps, mobile apps, and enterprise software with modern technologies.">
+<meta name="description" content="Digital Gabbar is a full-stack software development studio based in Ahmedabad, India. We build web apps, mobile apps, and enterprise software.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<div id="hud-bg" aria-hidden="true"></div>
-<div id="hud-scan" aria-hidden="true"></div>
 <div id="bar"></div>
 
 <!-- Mobile Drawer -->
 <div class="drawer" id="drawer">
   <button class="drawer-close" onclick="closeDrawer()">&#10005;</button>
   <a href="#services" onclick="closeDrawer()">Services</a>
-  <a href="#tech" onclick="closeDrawer()">Technologies</a>
-  <a href="#team" onclick="closeDrawer()">Team</a>
-  <a href="#careers" onclick="closeDrawer()">Careers</a>
+  <a href="#projects" onclick="closeDrawer()">Projects</a>
+  <a href="#tech" onclick="closeDrawer()">Tech</a>
+  <a href="#tools" onclick="closeDrawer()">Products</a>
+  <a href="#profile" onclick="closeDrawer()">Profile</a>
   <a href="blogs.html" onclick="closeDrawer()">Blog</a>
-  <a href="#contact" onclick="closeDrawer()">Contact</a>
+  <a href="contact.html" onclick="closeDrawer()">Contact</a>
 </div>
 
 <!-- Nav -->
@@ -34,488 +33,492 @@
   </a>
   <div class="nav-links">
     <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
     <a href="#tech">Tech</a>
-    <a href="#team">Team</a>
-    <a href="#careers">Careers</a>
+    <a href="#tools">Products</a>
+    <a href="#profile">Profile</a>
     <a href="blogs.html">Blog</a>
     <a href="contact.html" class="cta">Get in touch</a>
   </div>
   <button class="hamburger" onclick="openDrawer()"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- ============================================
-     HERO
-     ============================================ -->
-<section class="hero">
-  <div class="hud-corners" aria-hidden="true">
-    <i class="hc-tl"></i><i class="hc-tr"></i>
-    <i class="hc-bl"></i><i class="hc-br"></i>
+<div class="announce-strip" aria-label="Offer announcement">
+  <div class="announce-track">
+    <span>First 10 people will get free redesign of their static web pages.</span>
+    <span class="announce-dot">•</span>
+    <span>Is your website outdated or underperforming? We redesign it into a premium, fast, modern experience.</span>
+    <span class="announce-dot">•</span>
+    <span>First 10 people will get free redesign of their static web pages.</span>
+    <span class="announce-dot">•</span>
+    <span>Is your website outdated or underperforming? We redesign it into a premium, fast, modern experience.</span>
   </div>
-  <div class="hero-inner">
-    <div class="hero-3d" aria-hidden="true">
-      <div class="hero-3d-inner">
-        <img src="assets/logos/gigi-gabbar-logo.png" alt="">
-      </div>
-    </div>
-    <div class="hud-status"><span class="hud-dot"></span>Systems Online</div>
-    <div class="hero-label">Software Development Studio</div>
-    <h1>We build software<br>that <em>actually</em> ships.</h1>
-    <p>Digital Gabbar is a full-stack development studio based in Ahmedabad. We take your idea from architecture to production — on time, on budget, and built to last.</p>
-    <div class="hero-actions">
-      <a class="btn btn-solid" href="contact.html">Start a project</a>
-      <a class="btn btn-outline" href="#services">Our services</a>
-    </div>
-    <div class="hero-tw">Currently building &rarr; <span class="tw" id="tw"></span></div>
-  </div>
-  <div class="hero-ticker" aria-hidden="true">
-    <div class="hero-ticker-inner">// STATUS:ONLINE &nbsp;&nbsp;&nbsp; BUILD:2026 &nbsp;&nbsp;&nbsp; PROJECTS:50+ &nbsp;&nbsp;&nbsp; UPTIME:99.9% &nbsp;&nbsp;&nbsp; LOCATION:AHD.IN &nbsp;&nbsp;&nbsp; STACK:.NET+REACT+NODE &nbsp;&nbsp;&nbsp; CLIENTS:TRUSTED &nbsp;&nbsp;&nbsp; SLA:24/7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // STATUS:ONLINE &nbsp;&nbsp;&nbsp; BUILD:2026 &nbsp;&nbsp;&nbsp; PROJECTS:50+ &nbsp;&nbsp;&nbsp; UPTIME:99.9% &nbsp;&nbsp;&nbsp; LOCATION:AHD.IN &nbsp;&nbsp;&nbsp; STACK:.NET+REACT+NODE &nbsp;&nbsp;&nbsp; CLIENTS:TRUSTED &nbsp;&nbsp;&nbsp; SLA:24/7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-  </div>
-</section>
-
-<!-- Stats -->
-<div class="stats reveal">
-  <div class="stat"><div class="stat-n" data-c="50" data-sfx="+">0</div><div class="stat-l">Projects delivered</div></div>
-  <div class="stat"><div class="stat-n" data-c="6" data-sfx="+">0</div><div class="stat-l">Years in business</div></div>
-  <div class="stat"><div class="stat-n" data-c="98" data-sfx="%">0</div><div class="stat-l">Client satisfaction</div></div>
-  <div class="stat"><div class="stat-n" data-c="12" data-sfx="+">0</div><div class="stat-l">Core technologies</div></div>
 </div>
 
-<!-- ============================================
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Premium Engineering Studio &middot; Ahmedabad</p>
+    <h1>Dark. Bold.<br><em>Premium</em><br>Digital Builds.</h1>
+    <p class="hero-sub">We design and engineer high-conversion digital products with cinematic UI, strong backend architecture, and launch-ready execution.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-solid" href="contact.html">Start premium build</a>
+      <a class="btn btn-outline" href="#projects">Explore 3D projects</a>
+    </div>
+    <p class="hero-tw">Live pipeline &rarr; <span class="tw" id="tw"></span></p>
+  </div>
+  <div class="hero-visual" aria-hidden="true">
+    <canvas id="hero-canvas"></canvas>
+    <div class="orb-wrap" id="orbWrap">
+      <div class="orb-glow"></div>
+      <div class="orb-ring orb-ring-1"></div>
+      <div class="orb-ring orb-ring-2"></div>
+      <div class="orb-ring orb-ring-3"></div>
+      <div class="orb-sphere"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     MARQUEE
+     ═══════════════════════════════════════ -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Web Development</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Mobile Apps</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">API Design</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Legacy Migration</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">SaaS Products</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Technical Consulting</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">UI / UX Design</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Cloud & DevOps</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Web Development</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Mobile Apps</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">API Design</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Legacy Migration</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">SaaS Products</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Technical Consulting</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">UI / UX Design</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Cloud & DevOps</span><span class="marquee-dot">·</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     STATS
+     ═══════════════════════════════════════ -->
+<div class="stats-band reveal">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-n" data-c="50" data-sfx="+">0</div>
+      <div class="stat-l">Projects Delivered</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n" data-c="6" data-sfx="+">0</div>
+      <div class="stat-l">Years in Business</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n" data-c="98" data-sfx="%">0</div>
+      <div class="stat-l">Client Satisfaction</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n" data-c="12" data-sfx="+">0</div>
+      <div class="stat-l">Core Technologies</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
      SERVICES
-     ============================================ -->
-<section id="services">
+     ═══════════════════════════════════════ -->
+<section id="services" class="sec-border">
   <div class="s">
-    <div class="reveal">
-      <div class="s-label">What we do</div>
-      <h2 class="s-title">Services</h2>
-      <p class="s-sub">End-to-end digital product development. Strategy, design, engineering, and deployment under one roof.</p>
+    <div class="s-head reveal">
+      <div class="s-label">// What we do</div>
+      <h2 class="s-title">Your website feels outdated?<br>We <em>redesign it</em> to perform better.</h2>
+      <p class="s-sub">We turn outdated and low-converting websites into premium digital storefronts that feel modern, load fast, and win trust in the first few seconds.</p>
     </div>
-    <div class="services-wrap">
-      <div class="service-row reveal">
-        <div class="s-num">01</div>
-        <div class="s-body">
-          <h3>Website Modernization</h3>
-          <p>Upgrade outdated designs to modern UI/UX standards. We transform legacy interfaces into fast, responsive, and visually compelling experiences that users love.</p>
+    <div class="service-sell reveal">
+      <div class="service-offer">
+        <div class="service-offer-badge">High-conversion website redesign</div>
+        <h3>From outdated and inconsistent to premium and conversion-ready.</h3>
+        <p>We redesign static sites and business websites with a stronger visual system, better structure, and clear call-to-actions so visitors trust you and contact you faster.</p>
+        <ul class="service-points">
+          <li>Modern premium UI with strong first impression</li>
+          <li>Faster loading and mobile-first layout</li>
+          <li>Clear content hierarchy that drives leads</li>
+          <li>SEO and technical cleanup during redesign</li>
+        </ul>
+        <div class="service-offer-actions">
+          <a class="btn btn-solid" href="contact.html">Claim free redesign slot</a>
+          <a class="btn btn-outline" href="#projects">See redesign quality</a>
         </div>
-        <div class="s-chip">UI/UX &middot; Figma</div>
       </div>
-      <div class="service-row reveal d1">
-        <div class="s-num">02</div>
-        <div class="s-body">
-          <h3>Full Application Development</h3>
-          <p>Web applications and mobile apps built from the ground up. Architecture, development, testing, and deployment — we handle the full lifecycle.</p>
-        </div>
-        <div class="s-chip">Web &middot; Mobile</div>
+      <div class="service-steps">
+        <article class="service-step">
+          <div class="step-no">01</div>
+          <h4>Audit your current website</h4>
+          <p>We identify visual, UX, speed, and trust problems that are hurting conversions.</p>
+        </article>
+        <article class="service-step">
+          <div class="step-no">02</div>
+          <h4>Redesign with premium direction</h4>
+          <p>New structure, typography, visual language, and conversion-focused sections.</p>
+        </article>
+        <article class="service-step">
+          <div class="step-no">03</div>
+          <h4>Deploy and optimize</h4>
+          <p>We launch the redesigned site with responsive polish and performance tuning.</p>
+        </article>
       </div>
-      <div class="service-row reveal d2">
-        <div class="s-num">03</div>
-        <div class="s-body">
-          <h3>Website Development</h3>
-          <p>Static marketing sites, dynamic web portals, e-commerce platforms, and SaaS dashboards — built with performance, SEO, and accessibility in mind.</p>
+    </div>
+
+    <div class="service-tags reveal d1">
+      <span>Static Website Redesign</span>
+      <span>Landing Page Revamp</span>
+      <span>Brand Visual Refresh</span>
+      <span>Mobile UI Improvement</span>
+      <span>Speed Optimization</span>
+      <span>Conversion UX</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PROJECTS 3D SCROLL
+     ═══════════════════════════════════════ -->
+<section id="projects" class="sec-border proj-section">
+  <div class="s">
+    <div class="s-head reveal">
+      <div class="s-label">// Selected work</div>
+      <h2 class="s-title">Projects in <em>3D scroll</em></h2>
+      <p class="s-sub">Drag or scroll to explore concepts, products, and client builds in a cinematic horizontal gallery.</p>
+      <div class="proj-scroll-hint">Drag horizontally</div>
+    </div>
+  </div>
+  <div class="proj-track-wrap reveal">
+    <div class="proj-track" id="projTrack">
+      <article class="proj-card" data-depth="1">
+        <div class="proj-img">
+          <div class="proj-img-bg"></div>
+          <span class="proj-img-label">SaaS</span>
+          <span class="proj-img-num">01</span>
         </div>
-        <div class="s-chip">Static &middot; Dynamic</div>
+        <div class="proj-body">
+          <h3 class="proj-title">Social Schedulr</h3>
+          <p class="proj-desc">Unified social planning, post queue automation, and multi-account publishing from one dashboard.</p>
+          <div class="proj-tags"><span class="proj-tag">Automation</span><span class="proj-tag">Scheduling</span><span class="proj-tag">Creator Tools</span></div>
+        </div>
+      </article>
+      <article class="proj-card" data-depth="2">
+        <div class="proj-img">
+          <div class="proj-img-bg"></div>
+          <span class="proj-img-label">Enterprise</span>
+          <span class="proj-img-num">02</span>
+        </div>
+        <div class="proj-body">
+          <h3 class="proj-title">Operations Command Suite</h3>
+          <p class="proj-desc">Role-based dashboards, workflow approvals, and real-time metrics for internal business teams.</p>
+          <div class="proj-tags"><span class="proj-tag">.NET</span><span class="proj-tag">React</span><span class="proj-tag">RBAC</span></div>
+        </div>
+      </article>
+      <article class="proj-card" data-depth="3">
+        <div class="proj-img">
+          <div class="proj-img-bg"></div>
+          <span class="proj-img-label">Fintech</span>
+          <span class="proj-img-num">03</span>
+        </div>
+        <div class="proj-body">
+          <h3 class="proj-title">Payments Insight Portal</h3>
+          <p class="proj-desc">Transaction analytics, fraud alerts, and smart reconciliation workflows for growing finance teams.</p>
+          <div class="proj-tags"><span class="proj-tag">Analytics</span><span class="proj-tag">Security</span><span class="proj-tag">Cloud</span></div>
+        </div>
+      </article>
+      <article class="proj-card" data-depth="2">
+        <div class="proj-img">
+          <div class="proj-img-bg"></div>
+          <span class="proj-img-label">E-commerce</span>
+          <span class="proj-img-num">04</span>
+        </div>
+        <div class="proj-body">
+          <h3 class="proj-title">Conversion Funnel Engine</h3>
+          <p class="proj-desc">High-speed storefront architecture with conversion tracking and campaign-ready landing systems.</p>
+          <div class="proj-tags"><span class="proj-tag">Performance</span><span class="proj-tag">SEO</span><span class="proj-tag">Growth</span></div>
+        </div>
+      </article>
+      <article class="proj-card" data-depth="1">
+        <div class="proj-img">
+          <div class="proj-img-bg"></div>
+          <span class="proj-img-label">Healthcare</span>
+          <span class="proj-img-num">05</span>
+        </div>
+        <div class="proj-body">
+          <h3 class="proj-title">CareOps Platform</h3>
+          <p class="proj-desc">Patient operations workflow and secure data handling with audit-ready architecture.</p>
+          <div class="proj-tags"><span class="proj-tag">Compliance</span><span class="proj-tag">Workflow</span><span class="proj-tag">API</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PRODUCTS / TOOLS
+     ═══════════════════════════════════════ -->
+<section id="tools" class="sec-border">
+  <div class="s">
+    <div class="s-head reveal">
+      <div class="s-label">// Products</div>
+      <h2 class="s-title">Products we <em>launch</em></h2>
+      <p class="s-sub">Internal product bets engineered with the same quality standards we ship for clients.</p>
+    </div>
+
+    <div class="tool-card reveal">
+      <div class="tool-card-top">
+        <div class="tool-badge"><span class="tool-badge-dot"></span> Launching soon</div>
+        <h3>Social Schedulr</h3>
+        <a class="tool-url" href="https://social-schedulr.xyz" target="_blank" rel="noopener">social-schedulr.xyz -></a>
+        <p class="tool-desc">Schedule and automate your social media from one premium workspace. Manage multiple channels, maintain posting consistency, and run your content pipeline without chaos.</p>
       </div>
-      <div class="service-row reveal d3">
-        <div class="s-num">04</div>
-        <div class="s-body">
-          <h3>API Design &amp; Integration</h3>
-          <p>Clean RESTful APIs, microservices, third-party integrations, and real-time pipelines that scale reliably across your entire ecosystem.</p>
-        </div>
-        <div class="s-chip">REST &middot; Microservices</div>
+      <div class="tool-feats">
+        <span class="tool-feat">Multi-platform scheduling</span>
+        <span class="tool-feat">Content calendar</span>
+        <span class="tool-feat">Team workspaces</span>
+        <span class="tool-feat">Auto-posting</span>
+        <span class="tool-feat">Analytics dashboard</span>
+        <span class="tool-feat">Bulk upload</span>
       </div>
-      <div class="service-row reveal">
-        <div class="s-num">05</div>
-        <div class="s-body">
-          <h3>Legacy Modernisation</h3>
-          <p>We assess, refactor, and migrate aging systems — WebForms, WinForms, MVC — with zero disruption to your ongoing operations.</p>
-        </div>
-        <div class="s-chip">.NET &middot; Migration</div>
+      <div class="tool-card-bot">
+        <a class="btn btn-solid" href="https://social-schedulr.xyz" target="_blank" rel="noopener">Visit Social Schedulr &rarr;</a>
+        <span class="tool-tagline">More tools are coming soon. Stay with us.</span>
       </div>
-      <div class="service-row reveal d1">
-        <div class="s-num">06</div>
-        <div class="s-body">
-          <h3>Technical Consulting</h3>
-          <p>Architecture reviews, stack selection, performance audits, and technology roadmaps for growing teams that need expert guidance.</p>
+    </div>
+
+    <div class="tools-more reveal" style="margin-top:20px">
+      <div class="tool-more">
+        <span class="tool-more-icon">&#128736;</span>
+        <div class="tool-more-body">
+          <h4>Dev Tools Suite</h4>
+          <p>Utilities for developers</p>
+          <span class="tool-more-badge">Coming Soon</span>
         </div>
-        <div class="s-chip">Strategy</div>
+      </div>
+      <div class="tool-more">
+        <span class="tool-more-icon">&#128200;</span>
+        <div class="tool-more-body">
+          <h4>Analytics Platform</h4>
+          <p>Business intelligence</p>
+          <span class="tool-more-badge">Coming Soon</span>
+        </div>
+      </div>
+      <div class="tool-more">
+        <span class="tool-more-icon">&#129302;</span>
+        <div class="tool-more-body">
+          <h4>AI Workflow Builder</h4>
+          <p>Automate anything</p>
+          <span class="tool-more-badge">Coming Soon</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================
-     HIRE DEVELOPERS / FREELANCER NETWORK
-     ============================================ -->
-<section class="hire-section">
+<!-- ═══════════════════════════════════════
+     PROFILE 3D
+     ═══════════════════════════════════════ -->
+<section id="profile" class="sec-border profile-section">
   <div class="s">
-    <div class="reveal">
-      <div class="s-label">Freelancer network</div>
-      <h2 class="s-title">Hire <em>verified</em> developers</h2>
-      <p class="s-sub">Access our network of pre-vetted engineers. Faster delivery, professional contracts, and quality you can trust.</p>
-    </div>
-    <div class="hire-grid reveal">
-      <div class="hire-card">
-        <div class="hire-icon">&#10004;</div>
-        <h3>Verified Developers</h3>
-        <p>Every developer in our network goes through technical assessment and background verification. You get talent that's proven, not just claimed.</p>
+    <div class="profile-layout">
+      <div class="profile-copy reveal">
+        <div class="s-label">// Founder profile</div>
+        <h2 class="s-title">Built by in-house professionals,<br>with <em>real ownership</em></h2>
+        <p class="s-sub">You coordinate directly with our in-house team that designs and builds your product. We care deeply about quality, outcomes, and long-term product success.</p>
+        <div class="profile-points">
+          <div class="profile-point"><span class="pp-dot"></span>Direct coordination with the same team from brief to launch.</div>
+          <div class="profile-point"><span class="pp-dot"></span>In-house designers and engineers who treat your product like their own.</div>
+          <div class="profile-point"><span class="pp-dot"></span>Fast cycles, transparent communication, measurable outcomes.</div>
+        </div>
       </div>
-      <div class="hire-card">
-        <div class="hire-icon">&#9889;</div>
-        <h3>Faster Delivery</h3>
-        <p>Pre-built teams ready to start within days, not weeks. Parallel workstreams and proven workflows mean your project ships sooner.</p>
+      <div class="profile-visual reveal d1" aria-hidden="true">
+        <div class="profile-3d-card" id="profile3dCard">
+          <div class="p3d-face p3d-front">
+            <div class="p3d-avatar">HB</div>
+            <h4>Hrutvik Barot</h4>
+            <p>Founder &amp; Lead Engineer</p>
+          </div>
+          <div class="p3d-face p3d-back">
+            <h4>Core Stack</h4>
+            <ul>
+              <li>.NET + React</li>
+              <li>Node + Cloud</li>
+              <li>Product Architecture</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="hire-card">
-        <div class="hire-icon">&#128196;</div>
-        <h3>Contract-Based Work</h3>
-        <p>Clear scopes, milestones, and deliverables. Professional contracts protect both parties and ensure accountability throughout.</p>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:40px" class="reveal">
-      <a class="btn btn-solid" href="contact.html">Hire developers &rarr;</a>
-      <a class="btn btn-outline" href="contact.html" style="margin-left:12px">Start your project &rarr;</a>
     </div>
   </div>
 </section>
 
-<!-- ============================================
-     TECH
-     ============================================ -->
-<section id="tech" class="tech-section">
+<!-- ═══════════════════════════════════════
+     TECH STACK
+     ═══════════════════════════════════════ -->
+<section id="tech" class="sec-border">
   <div class="s">
     <div class="tech-grid">
       <div class="reveal">
-        <div class="s-label">Stack</div>
+        <div class="s-label">// Stack</div>
         <h2 class="s-title">Technologies<br>we <em>master</em></h2>
-        <p class="s-sub" style="margin-bottom:32px">We pick the right tool for each problem — no dogma, just what works at your scale and complexity.</p>
+        <p class="s-sub" style="margin-bottom:32px">The right tool for every problem — no dogma, just what works at your scale.</p>
         <a class="btn btn-outline" href="contact.html">Discuss your stack &rarr;</a>
       </div>
-      <div class="tech-list reveal">
+      <div class="tech-list reveal d1">
         <div class="tech-row"><span class="t-name">.NET Core / Framework</span><span class="t-cat">Backend</span></div>
         <div class="tech-row"><span class="t-name">React / Angular / Vue</span><span class="t-cat">Frontend</span></div>
         <div class="tech-row"><span class="t-name">Node.js / Express</span><span class="t-cat">Backend</span></div>
         <div class="tech-row"><span class="t-name">Java Spring Boot</span><span class="t-cat">Backend</span></div>
-        <div class="tech-row"><span class="t-name">WebForms / WinForms / MVC</span><span class="t-cat">Legacy .NET</span></div>
         <div class="tech-row"><span class="t-name">MERN / MEVN Stack</span><span class="t-cat">Full Stack</span></div>
         <div class="tech-row"><span class="t-name">SQL Server / PostgreSQL / MongoDB</span><span class="t-cat">Database</span></div>
-        <div class="tech-row"><span class="t-name">Figma / UI/UX Design</span><span class="t-cat">Design</span></div>
-        <div class="tech-row"><span class="t-name">Azure / AWS / Docker</span><span class="t-cat">Cloud &amp; DevOps</span></div>
+        <div class="tech-row"><span class="t-name">Figma / UI&ndash;UX Design</span><span class="t-cat">Design</span></div>
+        <div class="tech-row"><span class="t-name">Azure / AWS / Docker</span><span class="t-cat">Cloud</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================
-     DOMAINS
-     ============================================ -->
-<section id="domains">
-  <div class="s">
-    <div class="reveal">
-      <div class="s-label">Industry</div>
-      <h2 class="s-title">Domains we've<br>delivered in</h2>
-      <p class="s-sub">We've worked across enough verticals that we come with context, not just code.</p>
-    </div>
-    <div class="domains-grid reveal">
-      <div class="d-cell"><div class="di">&#127918;</div><div class="dn">Gaming Platforms</div></div>
-      <div class="d-cell"><div class="di">&#127915;</div><div class="dn">Ticketing Systems</div></div>
-      <div class="d-cell"><div class="di">&#128138;</div><div class="dn">Pharma Solutions</div></div>
-      <div class="d-cell"><div class="di">&#128188;</div><div class="dn">Freelancing Portals</div></div>
-      <div class="d-cell"><div class="di">&#128202;</div><div class="dn">CRM Systems</div></div>
-      <div class="d-cell"><div class="di">&#128736;</div><div class="dn">SaaS Management</div></div>
-      <div class="d-cell"><div class="di">&#127974;</div><div class="dn">FinTech</div></div>
-      <div class="d-cell"><div class="di">&#128722;</div><div class="dn">E-Commerce</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     PROCESS
-     ============================================ -->
-<section style="border-top:1px solid var(--border);background:var(--bg2)">
-  <div class="s">
-    <div class="reveal">
-      <div class="s-label">How we work</div>
-      <h2 class="s-title">From brief to launch</h2>
-    </div>
-    <div class="process-grid">
-      <div class="process-step reveal"><div class="p-num">01</div><div class="p-title">Discovery</div><p class="p-desc">We dig into your goals, users, and constraints. Define scope, KPIs, and what success actually looks like.</p></div>
-      <div class="process-step reveal d1"><div class="p-num">02</div><div class="p-title">Architecture</div><p class="p-desc">Stack selection, data models, API contracts, and infrastructure blueprint — agreed before a line of code is written.</p></div>
-      <div class="process-step reveal d2"><div class="p-num">03</div><div class="p-title">Build &amp; Iterate</div><p class="p-desc">Agile sprints with weekly demos. Continuous testing, code reviews, transparent progress tracking.</p></div>
-      <div class="process-step reveal d3"><div class="p-num">04</div><div class="p-title">Launch &amp; Support</div><p class="p-desc">Smooth deployment, performance tuning, and ongoing maintenance as your product grows.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
+<!-- ═══════════════════════════════════════
      TEAM
-     ============================================ -->
-<section id="team">
+     ═══════════════════════════════════════ -->
+<section id="team" class="sec-border">
   <div class="s">
-    <div class="reveal">
-      <div class="s-label">Our people</div>
-      <h2 class="s-title">Meet the <em>team</em></h2>
-      <p class="s-sub">A tight-knit group of engineers, designers, and strategists who ship products that matter.</p>
+    <div class="s-head reveal">
+      <div class="s-label">// People</div>
+      <h2 class="s-title">The <em>team</em></h2>
+      <p class="s-sub">A small, focused group of engineers and designers who care about the craft.</p>
     </div>
-    <div class="team-grid reveal">
-      <div class="team-card">
-        <div class="team-avatar">HB</div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar">H</div>
         <div class="team-name">Hrutvik Barot</div>
-        <div class="team-role">Founder &amp; Lead Engineer</div>
+        <div class="team-role">Founder &middot; Full-Stack</div>
         <div class="team-tags">
           <span class="team-tag">.NET</span>
-          <span class="team-tag">Angular</span>
-          <span class="team-tag">Architecture</span>
-        </div>
-        <div class="team-socials">
-          <a class="team-social" href="https://github.com/root-vik" target="_blank" rel="noopener">GH</a>
-          <a class="team-social" href="https://linkedin.com" target="_blank" rel="noopener">in</a>
-        </div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar" style="background:linear-gradient(135deg,#34d399,#06b6d4)">AP</div>
-        <div class="team-name">Arjun Patel</div>
-        <div class="team-role">Senior Full Stack Developer</div>
-        <div class="team-tags">
           <span class="team-tag">React</span>
-          <span class="team-tag">Node.js</span>
-          <span class="team-tag">MongoDB</span>
+          <span class="team-tag">Azure</span>
         </div>
         <div class="team-socials">
-          <a class="team-social" href="#" target="_blank" rel="noopener">GH</a>
-          <a class="team-social" href="#" target="_blank" rel="noopener">in</a>
+          <span class="team-social">GH</span>
+          <span class="team-social">LI</span>
         </div>
       </div>
-      <div class="team-card">
-        <div class="team-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">NS</div>
-        <div class="team-name">Neha Shah</div>
+      <div class="team-card reveal d1">
+        <div class="team-avatar">R</div>
+        <div class="team-name">Raj Patel</div>
+        <div class="team-role">Backend Engineer</div>
+        <div class="team-tags">
+          <span class="team-tag">Node.js</span>
+          <span class="team-tag">PostgreSQL</span>
+          <span class="team-tag">Docker</span>
+        </div>
+        <div class="team-socials">
+          <span class="team-social">GH</span>
+          <span class="team-social">LI</span>
+        </div>
+      </div>
+      <div class="team-card reveal d2">
+        <div class="team-avatar">P</div>
+        <div class="team-name">Priya Shah</div>
         <div class="team-role">UI/UX Designer</div>
         <div class="team-tags">
           <span class="team-tag">Figma</span>
-          <span class="team-tag">UI/UX</span>
-          <span class="team-tag">Prototyping</span>
+          <span class="team-tag">Framer</span>
+          <span class="team-tag">React</span>
         </div>
         <div class="team-socials">
-          <a class="team-social" href="#" target="_blank" rel="noopener">Dr</a>
-          <a class="team-social" href="#" target="_blank" rel="noopener">in</a>
+          <span class="team-social">GH</span>
+          <span class="team-social">LI</span>
         </div>
       </div>
-      <div class="team-card">
-        <div class="team-avatar" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)">RD</div>
-        <div class="team-name">Rohan Desai</div>
-        <div class="team-role">Backend Engineer</div>
+      <div class="team-card reveal d3">
+        <div class="team-avatar">A</div>
+        <div class="team-name">Arjun Mehta</div>
+        <div class="team-role">Mobile Developer</div>
         <div class="team-tags">
-          <span class="team-tag">Java</span>
-          <span class="team-tag">Spring Boot</span>
-          <span class="team-tag">AWS</span>
+          <span class="team-tag">React Native</span>
+          <span class="team-tag">Swift</span>
+          <span class="team-tag">Kotlin</span>
         </div>
         <div class="team-socials">
-          <a class="team-social" href="#" target="_blank" rel="noopener">GH</a>
-          <a class="team-social" href="#" target="_blank" rel="noopener">in</a>
+          <span class="team-social">GH</span>
+          <span class="team-social">LI</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================
-     TESTIMONIALS
-     ============================================ -->
-<section class="testi-section">
+<!-- ═══════════════════════════════════════
+     CTA BANNER
+     ═══════════════════════════════════════ -->
+<section class="sec-border cta-banner">
   <div class="s">
     <div class="reveal">
-      <div class="s-label">Clients</div>
-      <h2 class="s-title">What people say</h2>
-    </div>
-    <div class="testi-grid reveal">
-      <div class="t-cell"><p class="t-q">"Digital Gabbar delivered our gaming platform ahead of schedule. The architecture is solid — we scaled to 10K users with zero downtime."</p><div class="t-who"><div class="t-av">RK</div><div><div class="t-name-testi">Rahul Kapoor</div><div class="t-role">Founder, GameZone India</div></div></div></div>
-      <div class="t-cell"><p class="t-q">"Their .NET MAUI expertise is excellent. Our pharma app runs flawlessly on both platforms with complex offline sync."</p><div class="t-who"><div class="t-av">SP</div><div><div class="t-name-testi">Sneha Patel</div><div class="t-role">CTO, MediSync</div></div></div></div>
-      <div class="t-cell"><p class="t-q">"We had a half-built CRM nightmare. They rewrote it cleanly in 3 months. Excellent communication, no surprises."</p><div class="t-who"><div class="t-av">AM</div><div><div class="t-name-testi">Arjun Mehta</div><div class="t-role">CEO, SalesPath</div></div></div></div>
-      <div class="t-cell"><p class="t-q">"Our SaaS needed serious performance work. They cut API response times by 70%. Meticulous engineers."</p><div class="t-who"><div class="t-av">PD</div><div><div class="t-name-testi">Priya Deshpande</div><div class="t-role">Product Lead, TicketNow</div></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     HR / JOB ASSISTANCE
-     ============================================ -->
-<section id="careers" class="hr-section">
-  <div class="s">
-    <div class="hr-layout">
-      <div class="reveal">
-        <div class="s-label">Careers</div>
-        <h2 class="s-title">We help you<br>get <em>hired</em></h2>
-        <p class="s-sub" style="margin-bottom:8px">Our HR division connects talented developers with the right opportunities. No upfront cost — we invest in your success.</p>
-        <div class="hr-features">
-          <div class="hr-feat">
-            <div class="hr-ico">&#128269;</div>
-            <div>
-              <h4>Job Matching</h4>
-              <p>We actively source and match candidates with companies that align with their skills, experience, and career goals.</p>
-            </div>
-          </div>
-          <div class="hr-feat">
-            <div class="hr-ico">&#127891;</div>
-            <div>
-              <h4>Interview Preparation</h4>
-              <p>Resume reviews, mock interviews, and technical coaching to help you put your best foot forward in every opportunity.</p>
-            </div>
-          </div>
-          <div class="hr-feat">
-            <div class="hr-ico">&#128176;</div>
-            <div>
-              <h4>Zero Upfront Cost</h4>
-              <p>You pay nothing until you land the job. Our fee is 50% of your first month's CTC — and it's negotiable.</p>
-            </div>
-          </div>
-          <div class="hr-feat">
-            <div class="hr-ico">&#129309;</div>
-            <div>
-              <h4>Long-Term Support</h4>
-              <p>Our relationship doesn't end at placement. We provide ongoing career guidance and support as you grow.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="reveal">
-        <div class="hr-highlight">
-          <div class="hr-highlight-big">&#8377;0</div>
-          <div style="font-size:14px;color:var(--white);font-weight:600;margin-bottom:4px">Upfront Cost</div>
-          <div class="hr-highlight-sub">You only pay after you're successfully placed. 50% of first month's CTC (negotiable). We succeed when you succeed.</div>
-          <a class="btn btn-green" href="contact.html?service=careers">Get Hired &rarr;</a>
-          <div class="hr-trust">
-            <div class="hr-trust-badge">No registration fee</div>
-            <div class="hr-trust-badge">Verified employers</div>
-            <div class="hr-trust-badge">Confidential process</div>
-            <div class="hr-trust-badge">Salary negotiation support</div>
-          </div>
-        </div>
+      <h2>Ready to build<br><em>something great?</em></h2>
+      <p>Let's take your idea from zero to production. Get in touch today.</p>
+      <div class="cta-actions">
+        <a class="btn btn-solid" href="contact.html">Start a project &rarr;</a>
+        <a class="btn btn-outline" href="contact.html">Book a call</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================
-     ABOUT
-     ============================================ -->
-<section id="about" style="border-top:1px solid var(--border)">
-  <div class="s">
-    <div class="about-layout">
-      <div class="about-text reveal">
-        <div class="s-label">About</div>
-        <h2 class="s-title">A small team.<br><em>Serious</em> output.</h2>
-        <p>We're a tight-knit group of engineers and product thinkers who've been in the trenches — building startups, rescuing legacy systems, and architecting enterprise platforms.</p>
-        <p>No bloated teams, no middlemen. You work directly with the people building your product. We ask hard questions early so there are no surprises later.</p>
-        <p><strong>We're always available, dedicated to the work, and genuinely invested in your success.</strong></p>
-        <div style="margin-top:32px"><a class="btn btn-solid" href="contact.html">Work with us</a></div>
-      </div>
-      <div class="reveal">
-        <div class="about-metrics">
-          <div class="am"><div class="am-v">50+</div><div class="am-k">Projects shipped</div></div>
-          <div class="am"><div class="am-v">6yr</div><div class="am-k">In business</div></div>
-          <div class="am"><div class="am-v">24/7</div><div class="am-k">Support SLA</div></div>
-          <div class="am"><div class="am-v">&#127470;&#127475;</div><div class="am-k">Ahmedabad, India</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     PARTNER SECTION
-     ============================================ -->
-<section class="partner-section">
-  <div class="s">
-    <div class="reveal">
-      <div class="s-label">Partnership</div>
-      <h2 class="s-title">Our Travel <em>Partner</em></h2>
-      <p class="s-sub">We're proud to have designed and developed platforms beyond software — including travel and hospitality.</p>
-    </div>
-    <div class="partner-card reveal">
-      <div class="partner-logo">
-        <div class="partner-logo-icon">&#9992;</div>
-        <h3>Wander Nest Holidays</h3>
-        <p>wandernestholidays.in</p>
-      </div>
-      <div class="partner-info">
-        <div class="partner-badge">&#10024; Built by Digital Gabbar</div>
-        <h3>Crafted with care — designed and developed by our team</h3>
-        <p>Wander Nest Holidays is a travel and tour platform that we designed and built from the ground up. From branding to booking flows, every pixel and line of code reflects our commitment to quality.</p>
-        <p>This partnership showcases our ability to deliver complete digital products across industries — not just software, but experiences.</p>
-        <a class="btn btn-solid" href="https://wandernestholidays.in" target="_blank" rel="noopener">Visit Website &rarr;</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     CONTACT
-     ============================================ -->
-<section id="contact" class="contact-section">
-  <div class="s">
-    <div class="contact-layout">
-      <div class="reveal">
-        <div class="s-label">Contact</div>
-        <h2 class="s-title">Let's build<br>something <em>together</em></h2>
-        <p class="s-sub" style="margin-bottom:40px">Tell us what you're working on. We'll get back within 24 hours with a clear plan.</p>
-        <div class="ci"><div class="ci-ico">&#128231;</div><div><div class="ci-l">Email</div><div class="ci-v"><a href="mailto:rootvik23@gmail.com">rootvik23@gmail.com</a></div></div></div>
-        <div class="ci"><div class="ci-ico">&#128222;</div><div><div class="ci-l">Phone / WhatsApp</div><div class="ci-v"><a href="tel:+917567279350">+91 7567279350</a></div></div></div>
-        <div class="ci"><div class="ci-ico">&#128205;</div><div><div class="ci-l">Location</div><div class="ci-v">Ahmedabad, Gujarat, India</div></div></div>
-      </div>
-      <div class="reveal" id="contactForm">
-        <div class="fg-row">
-          <div class="fg"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div>
-          <div class="fg"><label>Email</label><input type="email" name="email" placeholder="you@company.com" required></div>
-        </div>
-        <div class="fg"><label>Service</label><select name="service"><option value="">Select a service...</option><option>Web Development</option><option>Mobile Application</option><option>Custom Software</option><option>API &amp; Integration</option><option>Legacy Modernisation</option><option>Hire Developers</option><option>HR / Job Assistance</option><option>Technical Consulting</option></select></div>
-        <div class="fg"><label>Budget range</label><select name="budget"><option value="">Select...</option><option>Under &#8377;1L</option><option>&#8377;1L &ndash; &#8377;5L</option><option>&#8377;5L &ndash; &#8377;15L</option><option>&#8377;15L+</option></select></div>
-        <div class="fg"><label>Message</label><textarea name="message" placeholder="Describe your project, timeline, and any specific needs..." required></textarea></div>
-        <button class="form-btn" onclick="submitForm()">Send message &rarr;</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
+<!-- ═══════════════════════════════════════
      FOOTER
-     ============================================ -->
+     ═══════════════════════════════════════ -->
 <footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <div class="nav-logo" style="display:inline-flex"><div class="logo-mark"><img src="assets/logos/gigi-gabbar-logo.png" alt="DG"></div><span class="logo-name" style="margin-left:10px">Digital Gabbar</span></div>
-      <p>A software development studio building products that people use and businesses rely on.</p>
-      <div class="footer-contact">
-        <a href="mailto:rootvik23@gmail.com">&#128231; rootvik23@gmail.com</a>
-        <a href="tel:+917567279350">&#128222; +91 7567279350</a>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="display:inline-flex">
+          <div class="logo-mark"><img src="assets/logos/gigi-gabbar-logo.png" alt="DG"></div>
+          <span class="logo-name" style="margin-left:10px">Digital Gabbar</span>
+        </div>
+        <p>A software development studio building products that people use and businesses rely on.</p>
+        <div class="footer-contact">
+          <a href="mailto:rootvik23@gmail.com">&#128231; rootvik23@gmail.com</a>
+          <a href="tel:+917567279350">&#128222; +91 7567279350</a>
+        </div>
+      </div>
+      <div class="fcol">
+        <h5>Services</h5>
+        <a href="#services">Web Development</a>
+        <a href="#services">Mobile Apps</a>
+        <a href="#services">API Design</a>
+        <a href="#services">Consulting</a>
+      </div>
+      <div class="fcol">
+        <h5>Technologies</h5>
+        <a href="#tech">.NET Core</a>
+        <a href="#tech">React / Angular</a>
+        <a href="#tech">Node.js</a>
+        <a href="#tech">Azure / AWS</a>
+      </div>
+      <div class="fcol">
+        <h5>Company</h5>
+        <a href="#team">Team</a>
+        <a href="blogs.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="#tools">Products</a>
+        <a href="https://social-schedulr.xyz" target="_blank" rel="noopener">Social Schedulr</a>
       </div>
     </div>
-    <div class="fcol">
-      <h5>Services</h5>
-      <a href="#services">Web Development</a>
-      <a href="#services">Mobile Apps</a>
-      <a href="#services">Custom Software</a>
-      <a href="#services">API Design</a>
-      <a href="#services">Modernisation</a>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Digital Gabbar. All rights reserved.</span>
+      <span>Ahmedabad, India</span>
+      <span>Privacy &middot; Terms</span>
     </div>
-    <div class="fcol">
-      <h5>Technologies</h5>
-      <a href="#tech">.NET Core</a>
-      <a href="#tech">React / Angular</a>
-      <a href="#tech">Node.js</a>
-      <a href="#tech">Spring Boot</a>
-      <a href="#tech">Azure / AWS</a>
-    </div>
-    <div class="fcol">
-      <h5>Company</h5>
-      <a href="#about">About</a>
-      <a href="#team">Team</a>
-      <a href="blogs.html">Blog</a>
-      <a href="#careers">Careers</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>&copy; 2026 Digital Gabbar. All rights reserved.</span>
-    <span>Ahmedabad, India</span>
-    <span>Privacy &middot; Terms</span>
   </div>
 </footer>
 

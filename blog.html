@@ -6,16 +6,14 @@
 <title>Blog — Digital Gabbar</title>
 <meta name="description" content="Read insights on software development, technology trends, and building digital products.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 
 <!-- Google AdSense (replace ca-pub-XXXXXXX with your real publisher ID) -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="has-announce">
 
-<div id="hud-bg" aria-hidden="true"></div>
-<div id="hud-scan" aria-hidden="true"></div>
 <div id="bar"></div>
 
 <!-- Mobile Drawer -->
@@ -23,25 +21,43 @@
   <button class="drawer-close" onclick="closeDrawer()">&#10005;</button>
   <a href="index.html">Home</a>
   <a href="index.html#services" onclick="closeDrawer()">Services</a>
+  <a href="index.html#projects" onclick="closeDrawer()">Projects</a>
+  <a href="index.html#tech" onclick="closeDrawer()">Tech</a>
+  <a href="index.html#tools" onclick="closeDrawer()">Products</a>
+  <a href="index.html#profile" onclick="closeDrawer()">Profile</a>
   <a href="blogs.html" onclick="closeDrawer()">Blog</a>
   <a href="contact.html" onclick="closeDrawer()">Contact</a>
 </div>
 
 <!-- Nav -->
 <nav id="nav" class="scrolled">
-  <a class="nav-logo" href="/">
+  <a class="nav-logo" href="index.html">
     <div class="logo-mark"><img src="assets/logos/gigi-gabbar-logo.png" alt="DG"></div>
     <span class="logo-name">Digital Gabbar</span>
   </a>
   <div class="nav-links">
     <a href="index.html#services">Services</a>
+    <a href="index.html#projects">Projects</a>
     <a href="index.html#tech">Tech</a>
-    <a href="index.html#team">Team</a>
+    <a href="index.html#tools">Products</a>
+    <a href="index.html#profile">Profile</a>
     <a href="blogs.html" class="active">Blog</a>
     <a href="contact.html" class="cta">Get in touch</a>
   </div>
   <button class="hamburger" onclick="openDrawer()"><span></span><span></span><span></span></button>
 </nav>
+
+<div class="announce-strip" aria-label="Offer announcement">
+  <div class="announce-track">
+    <span>First 10 people will get free redesign of their static web pages.</span>
+    <span class="announce-dot">•</span>
+    <span>Is your website outdated or underperforming? We redesign it into a premium, fast, modern experience.</span>
+    <span class="announce-dot">•</span>
+    <span>First 10 people will get free redesign of their static web pages.</span>
+    <span class="announce-dot">•</span>
+    <span>Is your website outdated or underperforming? We redesign it into a premium, fast, modern experience.</span>
+  </div>
+</div>
 
 <!-- Blog Detail Header -->
 <div class="blog-detail-header" id="blogHeader">
@@ -84,11 +100,11 @@
 </div>
 
 <!-- Related Posts -->
-<section style="border-top:1px solid var(--border);background:var(--bg2)">
+<section class="sec-border" style="background:rgba(255,255,255,.01)">
   <div class="s">
     <div class="s-label">Keep reading</div>
     <h2 class="s-title" style="margin-bottom:32px">More from the blog</h2>
-    <div class="blog-grid" id="relatedPosts" style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
+    <div class="blog-grid" id="relatedPosts" style="border:1px solid var(--b1);border-radius:var(--r);overflow:hidden">
       <!-- Populated by JS -->
     </div>
   </div>
@@ -121,7 +137,7 @@
     </div>
     <div class="fcol">
       <h5>Company</h5>
-      <a href="index.html#about">About</a>
+      <a href="index.html#profile">Profile</a>
       <a href="index.html#team">Team</a>
       <a href="blogs.html">Blog</a>
       <a href="contact.html">Contact</a>

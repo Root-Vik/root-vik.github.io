@@ -6,13 +6,11 @@
 <title>Contact — Digital Gabbar</title>
 <meta name="description" content="Get in touch with Digital Gabbar. Let's discuss your project, hire developers, or explore career opportunities.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="has-announce">
 
-<div id="hud-bg" aria-hidden="true"></div>
-<div id="hud-scan" aria-hidden="true"></div>
 <div id="bar"></div>
 
 <!-- Mobile Drawer -->
@@ -20,26 +18,43 @@
   <button class="drawer-close" onclick="closeDrawer()">&#10005;</button>
   <a href="index.html">Home</a>
   <a href="index.html#services" onclick="closeDrawer()">Services</a>
-  <a href="index.html#tech" onclick="closeDrawer()">Technologies</a>
+  <a href="index.html#projects" onclick="closeDrawer()">Projects</a>
+  <a href="index.html#tech" onclick="closeDrawer()">Tech</a>
+  <a href="index.html#tools" onclick="closeDrawer()">Products</a>
+  <a href="index.html#profile" onclick="closeDrawer()">Profile</a>
   <a href="blogs.html" onclick="closeDrawer()">Blog</a>
   <a href="contact.html" onclick="closeDrawer()">Contact</a>
 </div>
 
 <!-- Nav -->
 <nav id="nav" class="scrolled">
-  <a class="nav-logo" href="/">
+  <a class="nav-logo" href="index.html">
     <div class="logo-mark"><img src="assets/logos/gigi-gabbar-logo.png" alt="DG"></div>
     <span class="logo-name">Digital Gabbar</span>
   </a>
   <div class="nav-links">
     <a href="index.html#services">Services</a>
+    <a href="index.html#projects">Projects</a>
     <a href="index.html#tech">Tech</a>
-    <a href="index.html#team">Team</a>
+    <a href="index.html#tools">Products</a>
+    <a href="index.html#profile">Profile</a>
     <a href="blogs.html">Blog</a>
     <a href="contact.html" class="cta active">Get in touch</a>
   </div>
   <button class="hamburger" onclick="openDrawer()"><span></span><span></span><span></span></button>
 </nav>
+
+<div class="announce-strip" aria-label="Offer announcement">
+  <div class="announce-track">
+    <span>First 10 people will get free redesign of their static web pages.</span>
+    <span class="announce-dot">•</span>
+    <span>Is your website outdated or underperforming? We redesign it into a premium, fast, modern experience.</span>
+    <span class="announce-dot">•</span>
+    <span>First 10 people will get free redesign of their static web pages.</span>
+    <span class="announce-dot">•</span>
+    <span>Is your website outdated or underperforming? We redesign it into a premium, fast, modern experience.</span>
+  </div>
+</div>
 
 <!-- Page Header -->
 <div class="page-header">
@@ -63,17 +78,17 @@
 
         <div class="contact-info-card reveal">
           <h3>Office hours</h3>
-          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)">
-            <span style="font-size:14px;color:var(--text)">Monday &ndash; Friday</span>
-            <span style="font-size:14px;color:var(--muted2)">10:00 AM &ndash; 7:00 PM IST</span>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--b1)">
+            <span style="font-size:14px;color:var(--t2)">Monday &ndash; Friday</span>
+            <span style="font-size:14px;color:var(--t3)">10:00 AM &ndash; 7:00 PM IST</span>
           </div>
-          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)">
-            <span style="font-size:14px;color:var(--text)">Saturday</span>
-            <span style="font-size:14px;color:var(--muted2)">10:00 AM &ndash; 2:00 PM IST</span>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--b1)">
+            <span style="font-size:14px;color:var(--t2)">Saturday</span>
+            <span style="font-size:14px;color:var(--t3)">10:00 AM &ndash; 2:00 PM IST</span>
           </div>
           <div style="display:flex;justify-content:space-between;padding:8px 0">
-            <span style="font-size:14px;color:var(--text)">Sunday</span>
-            <span style="font-size:14px;color:var(--muted2)">Closed</span>
+            <span style="font-size:14px;color:var(--t2)">Sunday</span>
+            <span style="font-size:14px;color:var(--t3)">Closed</span>
           </div>
         </div>
 
@@ -85,8 +100,8 @@
       <!-- Right: Form -->
       <div class="reveal" id="contactForm">
         <div style="margin-bottom:32px">
-          <h2 style="font-family:var(--serif);font-size:28px;color:var(--white);margin-bottom:8px">Send us a message</h2>
-          <p style="font-size:14px;color:var(--muted2)">Fill out the form below and we'll get back to you within 24 hours.</p>
+          <h2 style="font-family:var(--title);font-size:28px;color:var(--t1);margin-bottom:8px">Send us a message</h2>
+          <p style="font-size:14px;color:var(--t3)">Fill out the form below and we'll get back to you within 24 hours.</p>
         </div>
         <div class="fg-row">
           <div class="fg"><label>Name</label><input type="text" name="name" placeholder="Your full name" required></div>
@@ -121,7 +136,7 @@
         </div>
         <div class="fg"><label>Message</label><textarea name="message" placeholder="Tell us about your project, timeline, and any specific requirements..." required rows="5"></textarea></div>
         <button class="form-btn" onclick="submitForm()">Send message &rarr;</button>
-        <p style="font-size:12px;color:var(--muted);margin-top:12px;text-align:center">We respect your privacy. Your information will never be shared with third parties.</p>
+        <p style="font-size:12px;color:var(--t4);margin-top:12px;text-align:center">We respect your privacy. Your information will never be shared with third parties.</p>
       </div>
     </div>
   </div>
@@ -154,7 +169,7 @@
     </div>
     <div class="fcol">
       <h5>Company</h5>
-      <a href="index.html#about">About</a>
+      <a href="index.html#profile">Profile</a>
       <a href="index.html#team">Team</a>
       <a href="blogs.html">Blog</a>
       <a href="contact.html">Contact</a>

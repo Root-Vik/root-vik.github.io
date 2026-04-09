@@ -46,7 +46,7 @@ function initScroll() {
 function initTypewriter() {
   const el = document.getElementById('tw');
   if (!el) return;
-  const words = ['Angular SPAs', '.NET Core APIs', 'Cross-platform Apps', 'SaaS Platforms', 'Enterprise Software', 'React Dashboards'];
+  const words = ['Premium Product Systems', '3D Interface Experiences', 'Social Schedulr Launch', 'Automation Workflows', 'High-Performance Web Apps', 'More tools coming soon'];
   let wi = 0, ci = 0, del = false;
   function tw() {
     const w = words[wi];
@@ -62,31 +62,123 @@ function initTypewriter() {
   tw();
 }
 
-// ---- Hero 3D tilt on mouse (smooth, CSS-driven) ----
-function initHeroTilt() {
-  const hero = document.querySelector('.hero');
-  const brand = document.querySelector('.hero-3d');
-  if (!hero || !brand || !matchMedia('(pointer:fine)').matches) return;
+// ---- Hero 3D orb pointer movement ----
+function initHeroOrb() {
+  const wrap = document.getElementById('orbWrap');
+  if (!wrap || !matchMedia('(pointer:fine)').matches) return;
 
-  let tx = 0, ty = 0, cx = 0, cy = 0;
+  let tx = 0;
+  let ty = 0;
+  let cx = 0;
+  let cy = 0;
 
-  hero.addEventListener('mousemove', e => {
-    const r = brand.getBoundingClientRect();
-    const nx = (e.clientX - r.left) / r.width - 0.5;
-    const ny = (e.clientY - r.top) / r.height - 0.5;
-    tx = ny * -12;
-    ty = nx * 14;
+  document.addEventListener('mousemove', e => {
+    const x = (e.clientX / innerWidth - 0.5) * 2;
+    const y = (e.clientY / innerHeight - 0.5) * 2;
+    tx = x * 14;
+    ty = y * -12;
   });
 
-  hero.addEventListener('mouseleave', () => { tx = 0; ty = 0; });
-
   (function tick() {
-    cx += (tx - cx) * 0.07;
-    cy += (ty - cy) * 0.07;
-    brand.style.transform = `perspective(1200px) rotateX(${cx.toFixed(2)}deg) rotateY(${cy.toFixed(2)}deg)`;
+    cx += (tx - cx) * 0.08;
+    cy += (ty - cy) * 0.08;
+    wrap.style.transform = `rotateY(${cx.toFixed(2)}deg) rotateX(${cy.toFixed(2)}deg)`;
     requestAnimationFrame(tick);
   })();
 }
+
+// ---- Projects 3D horizontal drag + depth ----
+function initProjects3D() {
+  const track = document.getElementById('projTrack');
+  if (!track) return;
+
+  let isDown = false;
+  let startX = 0;
+  let startLeft = 0;
+
+  const pointerDown = e => {
+    isDown = true;
+    track.classList.add('grabbing');
+    startX = (e.touches ? e.touches[0].pageX : e.pageX);
+    startLeft = track.scrollLeft;
+  };
+
+  const pointerMove = e => {
+    if (!isDown) return;
+    const x = (e.touches ? e.touches[0].pageX : e.pageX);
+    const walk = (x - startX) * 1.35;
+    track.scrollLeft = startLeft - walk;
+  };
+
+  const pointerUp = () => {
+    isDown = false;
+    track.classList.remove('grabbing');
+  };
+
+  track.addEventListener('mousedown', pointerDown);
+  track.addEventListener('touchstart', pointerDown, { passive: true });
+  window.addEventListener('mousemove', pointerMove, { passive: true });
+  window.addEventListener('touchmove', pointerMove, { passive: true });
+  window.addEventListener('mouseup', pointerUp);
+  window.addEventListener('touchend', pointerUp);
+
+  const cards = Array.from(track.querySelectorAll('.proj-card'));
+  const updateDepth = () => {
+    const center = track.scrollLeft + track.clientWidth / 2;
+    cards.forEach(card => {
+      const cardCenter = card.offsetLeft + card.clientWidth / 2;
+      const diff = (cardCenter - center) / track.clientWidth;
+      const depth = Number(card.dataset.depth || 1);
+      const rotY = diff * -18;
+      const rotX = Math.abs(diff) * 7;
+      const z = Math.max(0, 60 - Math.abs(diff) * 130) * depth * 0.28;
+      card.style.transform = `translateZ(${z.toFixed(1)}px) rotateY(${rotY.toFixed(2)}deg) rotateX(${rotX.toFixed(2)}deg)`;
+    });
+  };
+
+  track.addEventListener('scroll', updateDepth, { passive: true });
+  window.addEventListener('resize', updateDepth);
+  updateDepth();
+}
+
+// ---- Profile 3D card reacts to scroll and mouse ----
+function initProfile3D() {
+  const card = document.getElementById('profile3dCard');
+  if (!card) return;
+
+  let mx = 0;
+  let my = 0;
+
+  const updateScroll = () => {
+    const rect = card.getBoundingClientRect();
+    const progress = (innerHeight - rect.top) / (innerHeight + rect.height);
+    const baseY = -20 + progress * 220;
+    const clampedY = Math.max(0, Math.min(180, baseY));
+    card.style.setProperty('--profile-y', clampedY.toFixed(2));
+  };
+
+  if (matchMedia('(pointer:fine)').matches) {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      mx = x * 16;
+      my = y * -16;
+      card.style.setProperty('--profile-x', my.toFixed(2));
+      card.style.setProperty('--profile-z', mx.toFixed(2));
+    });
+    card.addEventListener('mouseleave', () => {
+      mx = 0;
+      my = 0;
+      card.style.setProperty('--profile-x', '0');
+      card.style.setProperty('--profile-z', '0');
+    });
+  }
+
+  window.addEventListener('scroll', updateScroll, { passive: true });
+  updateScroll();
+}
+
 
 // ---- Mobile drawer ----
 function openDrawer() {
@@ -193,7 +285,7 @@ function initCustomCursor() {
   })();
 
   document.addEventListener('mouseover', e => {
-    if (e.target.closest('a,button,[onclick],.btn,.service-row,.team-card,.hire-card,.d-cell'))
+    if (e.target.closest('a,button,[onclick],.btn,.bc,.proj-card,.team-card,.tool-card,.profile-3d-card'))
       document.body.classList.add('cursor-over');
     else
       document.body.classList.remove('cursor-over');
@@ -217,37 +309,15 @@ function initClickRipple() {
   });
 }
 
-// ---- Scroll fx lines ----
-function initScrollFx() {
-  let lastY = 0, cooldown = false;
-  window.addEventListener('scroll', () => {
-    if (cooldown) return;
-    const delta = Math.abs(scrollY - lastY);
-    if (delta < 40) return;
-    lastY = scrollY;
-    cooldown = true;
-    setTimeout(() => cooldown = false, 120);
-
-    const count = Math.random() > 0.4 ? 2 : 1;
-    for (let i = 0; i < count; i++) {
-      setTimeout(() => {
-        const line = document.createElement('div');
-        line.className = 'scroll-fx-line';
-        line.style.top = (Math.random() * innerHeight * 0.8 + innerHeight * 0.1) + 'px';
-        document.body.appendChild(line);
-        setTimeout(() => line.remove(), 550);
-      }, i * 60);
-    }
-  }, { passive: true });
-}
 
 // ---- Init ----
 document.addEventListener('DOMContentLoaded', () => {
   initScroll();
   initTypewriter();
-  initHeroTilt();
+  initHeroOrb();
+  initProjects3D();
+  initProfile3D();
   setActiveNav();
   initCustomCursor();
   initClickRipple();
-  initScrollFx();
 });
