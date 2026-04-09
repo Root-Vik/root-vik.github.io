@@ -290,6 +290,7 @@ nav.scrolled{background:rgba(7,7,10,.92);backdrop-filter:blur(20px) saturate(1.4
 .team-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);transform:scaleX(0);transform-origin:left;transition:transform .45s}
 .team-card:hover::after{transform:scaleX(1)}
 .team-avatar{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.1);margin:0 auto 20px;display:grid;place-items:center;font-family:var(--title);font-size:24px;font-weight:700;color:#fff;border:1px solid var(--b2);transition:border-color .3s}
+.team-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
 .team-card:hover .team-avatar{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.14)}
 .team-name{font-family:var(--title);font-size:15px;font-weight:700;color:var(--t1);margin-bottom:4px;letter-spacing:-.01em}
 .team-role{font-size:11px;color:var(--t3);margin-bottom:14px;text-transform:uppercase;letter-spacing:.08em;font-weight:500}
