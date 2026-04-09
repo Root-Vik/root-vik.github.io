@@ -204,6 +204,20 @@ nav.scrolled{background:rgba(7,7,10,.92);backdrop-filter:blur(20px) saturate(1.4
 .proj-tags{display:flex;flex-wrap:wrap;gap:6px}
 .proj-tag{font-size:10px;font-weight:500;color:var(--t4);border:1px solid var(--b1);padding:3px 10px;border-radius:20px;letter-spacing:.04em}
 
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.work-card{background:var(--card);border:1px solid var(--b1);border-radius:var(--r);padding:28px;transition:all .25s;position:relative;overflow:hidden}
+.work-card:hover{background:var(--card-h);border-color:var(--b2);transform:translateY(-2px)}
+.work-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.work-card:hover::after{transform:scaleX(1)}
+.work-logo-dummy{height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 14px;border:1px dashed var(--b2);border-radius:10px;font-size:10px;font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--t4);margin-bottom:14px;background:rgba(255,255,255,.02)}
+.work-logo-image{height:44px;width:auto;max-width:220px;display:block;object-fit:contain;margin-bottom:14px;filter:drop-shadow(0 6px 16px rgba(0,0,0,.3))}
+.work-badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:14px;border:1px solid var(--b1);font-size:10px;color:var(--t3);font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.work-card h3{font-family:var(--title);font-size:24px;color:var(--t1);letter-spacing:-.02em;margin-bottom:10px}
+.work-card p{font-size:14px;color:var(--t2);line-height:1.8;margin-bottom:16px}
+.work-links{display:flex;flex-wrap:wrap;gap:8px}
+.work-links a{font-size:12px;font-family:var(--mono);padding:7px 12px;border-radius:16px;border:1px solid var(--b1);color:var(--t2);transition:all .2s}
+.work-links a:hover{border-color:var(--b2);color:var(--t1);background:rgba(255,255,255,.05)}
+
 /* ═══════════════════════════════════════════
    PRODUCTS
    ═══════════════════════════════════════════ */
@@ -213,6 +227,7 @@ nav.scrolled{background:rgba(7,7,10,.92);backdrop-filter:blur(20px) saturate(1.4
 .tool-badge{display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:600;color:var(--green);letter-spacing:.12em;text-transform:uppercase;margin-bottom:24px;padding:5px 14px;border:1px solid rgba(16,185,129,.22);border-radius:20px;background:rgba(16,185,129,.05)}
 .tool-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:blink 1.5s ease-in-out infinite}
 .tool-card-top h3{font-family:var(--title);font-size:clamp(22px,3vw,36px);font-weight:700;color:var(--t1);margin-bottom:8px;letter-spacing:-.03em}
+.tool-brand-logo{height:44px;width:auto;display:block;object-fit:contain;margin-bottom:16px;filter:drop-shadow(0 8px 20px rgba(0,0,0,.35))}
 .tool-url{font-size:12px;font-weight:500;color:var(--t3);display:inline-flex;align-items:center;gap:4px;margin-bottom:18px;transition:color .18s;font-family:var(--mono)}
 .tool-url:hover{color:var(--t1)}
 .tool-desc{font-size:15px;color:var(--t2);line-height:1.8;max-width:560px}
@@ -463,6 +478,7 @@ footer{border-top:1px solid var(--b1);padding:64px 80px 40px}
   .tools-more{grid-template-columns:1fr}
   .proj-track{padding:0 24px 8px}
   .proj-card{min-width:300px}
+   .work-grid{grid-template-columns:1fr}
 }
 @media(max-width:500px){
   .stats-inner{grid-template-columns:1fr 1fr}
