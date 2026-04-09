@@ -48,6 +48,10 @@ nav.scrolled{background:rgba(7,7,10,.92);backdrop-filter:blur(20px) saturate(1.4
 .nav-links a:hover,.nav-links a.active{color:var(--t1)}
 .nav-links .cta{background:#fff;color:#000;font-weight:700;margin-left:8px;padding:8px 20px;border-radius:8px;transition:background .18s,transform .15s}
 .nav-links .cta:hover{background:#e8e8e8;transform:translateY(-1px)}
+.nav-links .cta,
+.nav-links .cta:hover,
+.nav-links .cta.active,
+.nav-links .cta.active:hover{color:#000}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
 .hamburger span{width:20px;height:1.5px;background:var(--t3);transition:.3s;border-radius:2px}
 .drawer{display:none;position:fixed;inset:0;z-index:99;background:var(--bg);flex-direction:column;align-items:flex-start;padding:80px 40px 40px}

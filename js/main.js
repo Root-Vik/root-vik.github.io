@@ -315,7 +315,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initScroll();
   initTypewriter();
   initHeroOrb();
-  initProjects3D();
   initProfile3D();
   setActiveNav();
   initCustomCursor();
